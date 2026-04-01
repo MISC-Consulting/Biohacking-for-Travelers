@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arrival Protocol — Land Sharp, Perform From Day One | BioEdge</title>
+    <meta name="description" content="Tell us where you're headed. Our AI builds a personalized biohacking protocol so you arrive at 100%. Used by 2,400+ founders worldwide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #111118;
+            --bg-elevated: #16161f;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b7280;
+            --accent-primary: #6c5ce7;
+            --accent-cyan: #00cec9;
+            --accent-green: #10b981;
+            --accent-orange: #fdcb6e;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ---- Hero ---- */
+        .hero {
+            padding: 60px 0 48px;
+            text-align: center;
+        }
+
+        .hero-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(0, 206, 201, 0.08);
+            border: 1px solid rgba(0, 206, 201, 0.15);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 540px;
+            margin: 0 auto 28px;
+        }
+
+        .hero-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-metric {
+            text-align: center;
+        }
+
+        .hero-metric .hm-value {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        .hero-metric .hm-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ---- Case Study ---- */
+        .case-study {
+            padding: 48px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cs-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            margin-bottom: 12px;
+        }
+
+        .cs-title {
+            font-size: clamp(1.15rem, 3vw, 1.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .cs-body {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .cs-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .cs-metric {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .cs-metric .csm-label {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .cs-metric .csm-before {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+
+        .cs-metric .csm-after {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .cs-quote {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.8;
+            padding-left: 16px;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .cs-attribution {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            padding-left: 16px;
+        }
+
+        /* ---- Value Stack ---- */
+        .value-section {
+            padding: 48px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .value-section h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .value-item:last-child { border: none; }
+
+        .value-check {
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .value-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .value-item strong {
+            color: var(--text-primary);
+        }
+
+        .value-item .vi-price {
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .value-total {
+            text-align: center;
+            padding: 24px 0;
+        }
+
+        .value-total .vt-crossed {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .value-total .vt-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .value-total .vt-period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ---- Scarcity ---- */
+        .scarcity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(253, 203, 110, 0.06);
+            border: 1px solid rgba(253, 203, 110, 0.15);
+            border-radius: 10px;
+            margin-bottom: 32px;
+        }
+
+        .scarcity .sc-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .scarcity span {
+            font-size: 0.85rem;
+            color: var(--accent-orange);
+        }
+
+        .scarcity strong {
+            color: var(--text-primary);
+        }
+
+        /* ---- Form ---- */
+        .form-section {
+            padding: 48px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .form-card h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .form-card > p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-input:focus { border-color: var(--accent-primary); }
+
+        .form-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--accent-primary), #5a4bd1);
+            color: white;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .form-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
+        }
+
+        .form-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ---- Guarantee ---- */
+        .guarantee {
+            margin-top: 24px;
+            padding: 20px 24px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .guarantee h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 6px;
+        }
+
+        .guarantee p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ---- Footer ---- */
+        .lp-footer {
+            text-align: center;
+            padding: 40px 0 32px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .cs-metrics { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; }
+            .hero-metrics { gap: 20px; }
+            .form-card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Hero -->
+        <div class="hero">
+            <a href="../index.html" class="hero-logo">
+                <span>&#9889;</span>
+                <span>BioEdge</span>
+            </a>
+            <br>
+            <div class="hero-badge">
+                <span class="dot"></span>
+                The Arrival Protocol
+            </div>
+
+            <h1>Tell Us Where You're Going.<br>We'll Make Sure You <span class="gradient-text">Arrive at 100%.</span></h1>
+
+            <p>You lose 2-3 days every trip to jet lag, brain fog, and terrible sleep. That's not a travel problem — it's a biology problem. Our AI builds a personalized protocol so you land sharp and perform from day one.</p>
+
+            <div class="hero-metrics">
+                <div class="hero-metric">
+                    <div class="hm-value">40%</div>
+                    <div class="hm-label">More deep sleep</div>
+                </div>
+                <div class="hero-metric">
+                    <div class="hm-value">3.2x</div>
+                    <div class="hm-label">Faster recovery</div>
+                </div>
+                <div class="hero-metric">
+                    <div class="hm-value">2,400+</div>
+                    <div class="hm-label">Founders optimized</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study -->
+        <div class="case-study">
+            <div class="cs-label">Case Study: SFO to Tokyo</div>
+            <h3 class="cs-title">How a Series B Founder Presented to Investors 6 Hours After Landing</h3>
+            <p class="cs-body">M.K. was flying internationally 3-4 times per month. Every trip cost him 2-3 days of brain fog and sub-par performance. After running his first Arrival Protocol:</p>
+
+            <div class="cs-metrics">
+                <div class="cs-metric">
+                    <div class="csm-label">Deep Sleep</div>
+                    <div class="csm-before">22 min</div>
+                    <div class="csm-after">1h 38m</div>
+                </div>
+                <div class="cs-metric">
+                    <div class="csm-label">HRV on Arrival</div>
+                    <div class="csm-before">18ms</div>
+                    <div class="csm-after">47ms</div>
+                </div>
+                <div class="cs-metric">
+                    <div class="csm-label">Adaptation</div>
+                    <div class="csm-before">3.5 days</div>
+                    <div class="csm-after">0.5 days</div>
+                </div>
+            </div>
+
+            <p class="cs-quote">"I presented to investors 6 hours after landing and closed the meeting. That single trip paid for a lifetime of BioEdge."</p>
+            <p class="cs-attribution">— M.K., Series B Founder, FinTech</p>
+        </div>
+
+        <!-- Value Stack -->
+        <div class="value-section">
+            <h2>Here's Everything You Get</h2>
+
+            <div class="value-item">
+                <span class="value-check">&#10003;</span>
+                <p><strong>AI-Personalized Travel Protocols</strong> — Custom-built for your destination, timezone, schedule, and goals.</p>
+                <span class="vi-price">$200/trip</span>
+            </div>
+            <div class="value-item">
+                <span class="value-check">&#10003;</span>
+                <p><strong>Destination Database</strong> — 500+ cities with climate, timezone, altitude, and biohacking intel.</p>
+                <span class="vi-price">$50/mo</span>
+            </div>
+            <div class="value-item">
+                <span class="value-check">&#10003;</span>
+                <p><strong>Sleep, Energy & Recovery Protocols</strong> — Pre-flight, in-flight, on-landing, and day-one playbooks.</p>
+                <span class="vi-price">$150/mo</span>
+            </div>
+            <div class="value-item">
+                <span class="value-check">&#10003;</span>
+                <p><strong>Supplement Sourcing Guide</strong> — Exact brands, dosages, and timing. No guesswork.</p>
+                <span class="vi-price">$75</span>
+            </div>
+            <div class="value-item">
+                <span class="value-check">&#10003;</span>
+                <p><strong>Private Founder Community</strong> — Share protocols, trip reports, and data with other optimizers.</p>
+                <span class="vi-price">$50/mo</span>
+            </div>
+
+            <div class="value-total">
+                <div class="vt-crossed">Total value: $525+/month</div>
+                <div class="vt-price"><span class="gradient-text">$19/month</span></div>
+                <div class="vt-period">Unlimited protocols. Cancel anytime.</div>
+            </div>
+
+            <div class="scarcity">
+                <span class="sc-dot"></span>
+                <span>Founding Member pricing: <strong>347 of 500 spots remaining</strong></span>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+            <div class="form-card">
+                <h2>Where Are You <span class="gradient-text">Headed Next</span>?</h2>
+                <p>Tell us where you're going and we'll build your first Arrival Protocol — free.</p>
+
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-row">
+                        <input type="text" class="form-input" placeholder="First name" required>
+                        <input type="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                    <input type="text" class="form-input" placeholder="Where are you headed? (e.g. Tokyo, Bali, NYC...)">
+                    <button type="submit" class="form-btn">Build My Free Protocol</button>
+                </form>
+                <p class="form-note">Your first protocol is free. No credit card required.</p>
+
+                <div class="guarantee">
+                    <h4>"Arrive Ready" Guarantee</h4>
+                    <p>Try it for 30 days. If you don't notice a measurable difference in your energy, sleep, or travel recovery — we'll refund every cent. No questions asked.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="lp-footer">
+            <p>&copy; 2026 BioEdge Protocol. All rights reserved. Not medical advice.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = "You're on the list! Check your inbox.";
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

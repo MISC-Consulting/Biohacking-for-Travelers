@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Biomarkers Your Doctor Isn't Testing | BioEdge</title>
+    <meta name="description" content="Free guide: The 5 hidden biomarkers that predict burnout, brain fog, and accelerated aging in frequent travelers. Your annual physical misses all of them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #111118;
+            --bg-elevated: #16161f;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b7280;
+            --accent-primary: #6c5ce7;
+            --accent-cyan: #00cec9;
+            --accent-green: #10b981;
+            --accent-orange: #fdcb6e;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .lp-container {
+            max-width: 560px;
+            width: 100%;
+        }
+
+        /* Logo */
+        .lp-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .lp-logo .logo-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Badge */
+        .lp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(0, 206, 201, 0.08);
+            border: 1px solid rgba(0, 206, 201, 0.15);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .lp-badge .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Headline */
+        .lp-headline {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Subhead */
+        .lp-subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        /* Checklist */
+        .lp-checklist {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .lp-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .lp-checklist li .check {
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .lp-checklist li strong {
+            color: var(--text-primary);
+        }
+
+        /* Form Card */
+        .lp-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .lp-form-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .lp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lp-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .lp-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .lp-input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .lp-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--accent-primary), #5a4bd1);
+            color: white;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .lp-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
+        }
+
+        .lp-form-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Trust bar */
+        .lp-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .lp-trust-item {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lp-trust-item .trust-check {
+            color: var(--accent-green);
+            font-size: 0.75rem;
+        }
+
+        /* Proof quote */
+        .lp-proof {
+            text-align: center;
+            padding: 24px;
+            margin-top: 12px;
+        }
+
+        .lp-proof p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .lp-proof strong {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        /* Footer */
+        .lp-footer {
+            text-align: center;
+            padding: 32px 0 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 480px) {
+            .lp-form-card { padding: 24px 20px; }
+            .lp-trust { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lp-container">
+        <a href="../index.html" class="lp-logo">
+            <span class="logo-icon">&#9889;</span>
+            <span>BioEdge</span>
+        </a>
+
+        <div class="lp-badge">
+            <span class="badge-dot"></span>
+            Free guide — 2,400+ founders already downloaded
+        </div>
+
+        <h1 class="lp-headline">
+            The 5 Biomarkers Your Doctor <span class="gradient-text">Isn't Testing</span>
+        </h1>
+
+        <p class="lp-subhead">
+            Your annual physical checks 15 markers. We check 87. This free guide reveals the hidden biomarkers that predict burnout, brain fog, and accelerated aging — especially if you fly more than 4x per month.
+        </p>
+
+        <ul class="lp-checklist">
+            <li>
+                <span class="check">&#10003;</span>
+                <span><strong>Why "normal" bloodwork doesn't mean optimal</strong> — the ranges your doctor uses were set using sick populations, not high-performers</span>
+            </li>
+            <li>
+                <span class="check">&#10003;</span>
+                <span><strong>The one marker that predicts burnout 6 months early</strong> — and it's a $12 add-on your doctor never orders</span>
+            </li>
+            <li>
+                <span class="check">&#10003;</span>
+                <span><strong>How to read your Oura/WHOOP data like a biohacker</strong> — the 3 numbers that actually matter (hint: it's not your sleep score)</span>
+            </li>
+            <li>
+                <span class="check">&#10003;</span>
+                <span><strong>The $47 blood panel that changes everything</strong> — what to ask for, how to interpret it, and what to do if your numbers are off</span>
+            </li>
+        </ul>
+
+        <div class="lp-form-card">
+            <h3>Get the Free Guide Instantly</h3>
+            <form class="lp-form" id="lpForm">
+                <input type="text" class="lp-input" placeholder="First name" required>
+                <input type="email" class="lp-input" placeholder="your@email.com" required>
+                <button type="submit" class="lp-btn">Send Me the Guide</button>
+            </form>
+            <p class="lp-form-note">Free. No spam. No credit card. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="lp-trust">
+            <div class="lp-trust-item">
+                <span class="trust-check">&#10003;</span>
+                <span>No spam, ever</span>
+            </div>
+            <div class="lp-trust-item">
+                <span class="trust-check">&#10003;</span>
+                <span>Instant delivery</span>
+            </div>
+            <div class="lp-trust-item">
+                <span class="trust-check">&#10003;</span>
+                <span>Backed by peer-reviewed research</span>
+            </div>
+        </div>
+
+        <div class="lp-proof">
+            <p>"I thought my bloodwork was fine. This guide showed me my homocysteine was 3x optimal range. Fixed it in 8 weeks and the brain fog disappeared completely." — <strong>J.T., Managing Partner</strong></p>
+        </div>
+
+        <div class="lp-footer">
+            <p>&copy; 2026 BioEdge Protocol. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('lpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = 'Check your inbox!';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

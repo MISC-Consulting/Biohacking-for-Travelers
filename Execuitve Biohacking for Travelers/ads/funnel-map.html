@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioEdge — Full Meta Ads Funnel Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #111118;
+            --text-white: #f0f0f5;
+            --text-muted: #6b7280;
+            --accent: #6c5ce7;
+            --accent-cyan: #00cec9;
+            --accent-green: #10b981;
+            --accent-orange: #fdcb6e;
+            --accent-red: #ff6b6b;
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text-white);
+            min-height: 100vh;
+            padding: 40px 20px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+        }
+
+        .tag-cyan { color: var(--accent-cyan); background: rgba(0,206,201,0.1); border: 1px solid rgba(0,206,201,0.2); }
+        .tag-purple { color: var(--accent); background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.2); }
+        .tag-green { color: var(--accent-green); background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); }
+        .tag-orange { color: var(--accent-orange); background: rgba(253,203,110,0.1); border: 1px solid rgba(253,203,110,0.2); }
+        .tag-red { color: var(--accent-red); background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.2); }
+
+        /* Funnel Container */
+        .funnel {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Funnel Stage */
+        .funnel-stage {
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .funnel-connector {
+            width: 2px;
+            height: 48px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .funnel-connector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--accent-cyan));
+            opacity: 0.3;
+        }
+
+        .funnel-connector::after {
+            content: '\2193';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: var(--accent-cyan);
+            opacity: 0.6;
+        }
+
+        .funnel-connector-split {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            height: 48px;
+            position: relative;
+        }
+
+        .funnel-connector-split::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+            opacity: 0.3;
+        }
+
+        .funnel-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 28px 32px;
+            position: relative;
+        }
+
+        .funnel-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .funnel-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .funnel-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .funnel-card .fc-detail {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .fc-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .fc-item-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .fc-item-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .funnel-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* Metrics bar */
+        .funnel-metrics {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .fm-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fm-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .fm-item span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .fm-item strong {
+            color: var(--text-white);
+        }
+
+        /* Arrow labels */
+        .arrow-label {
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .arrow-label span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: var(--bg);
+            padding: 2px 12px;
+            border-radius: 4px;
+        }
+
+        /* Email sequence */
+        .email-sequence {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .email-step {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+        }
+
+        .email-step .es-day {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent-cyan);
+            margin-bottom: 4px;
+        }
+
+        .email-step .es-type {
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .email-step .es-subject {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Budget */
+        .budget-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .budget-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .budget-card .bc-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .budget-card .bc-value {
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .bc-value.cyan { color: var(--accent-cyan); }
+        .bc-value.green { color: var(--accent-green); }
+        .bc-value.orange { color: var(--accent-orange); }
+
+        /* Section dividers */
+        .section-divider {
+            text-align: center;
+            margin: 48px 0 32px;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .section-divider span {
+            position: relative;
+            background: var(--bg);
+            padding: 0 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .funnel-split { grid-template-columns: 1fr; }
+            .fc-grid { grid-template-columns: 1fr; }
+            .email-sequence { grid-template-columns: repeat(2, 1fr); }
+            .budget-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <span class="tag tag-cyan">Funnel Architecture</span>
+        <h1>BioEdge <span class="gradient-text">Meta Ads Funnel</span></h1>
+        <p>Complete funnel map from ad impression to paid conversion. Two parallel paths — lead magnet (cold) and direct waitlist (warm) — converging on the same email nurture sequence.</p>
+    </div>
+
+    <div class="funnel">
+
+        <!-- STAGE 1: ADS -->
+        <div class="funnel-stage">
+            <div class="funnel-card">
+                <div class="funnel-card-header">
+                    <div>
+                        <span class="tag tag-cyan">Stage 1 — Top of Funnel</span>
+                        <h3>Meta Ad Campaigns</h3>
+                        <p>3 ad creatives running simultaneously across Facebook + Instagram (feed, stories, reels). Each targets a different awareness level and uses a different hook angle.</p>
+                    </div>
+                </div>
+                <div class="fc-grid">
+                    <div class="fc-item">
+                        <div class="fc-item-label">Campaign A — Cold</div>
+                        <div class="fc-item-value">Lead Magnet: "5 Biomarkers" Guide</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Curiosity hook. Suby Godfather Strategy. Optimized for lead gen.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Campaign B — Warm</div>
+                        <div class="fc-item-value">Pain/Result: "Arrival Protocol"</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Brecka deficiency reframe + Hormozi data proof. Optimized for conversions.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Campaign C — Retarget</div>
+                        <div class="fc-item-value">Social Proof: Case Study</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Before/after biomarker data. Targets lead magnet downloaders who didn't convert.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Audiences</div>
+                        <div class="fc-item-value">Interest + Lookalike Stacks</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Biohacking + Entrepreneurs + Huberman/Attia/Oura/WHOOP interests. 1% LAL of converters.</p>
+                    </div>
+                </div>
+                <div class="funnel-metrics">
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-cyan);"></div>
+                        <span>Target CPM: <strong>$8-15</strong></span>
+                    </div>
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-green);"></div>
+                        <span>Target CTR: <strong>1.8-3.2%</strong></span>
+                    </div>
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-orange);"></div>
+                        <span>Target CPC: <strong>$0.80-2.50</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTOR: Split -->
+        <div class="funnel-connector">
+            <div class="arrow-label"><span>Click-through</span></div>
+        </div>
+
+        <!-- STAGE 2: LANDING PAGES (Split) -->
+        <div class="funnel-stage">
+            <div class="funnel-split">
+                <!-- Path A: Lead Magnet -->
+                <div class="funnel-card" style="border-color: rgba(0,206,201,0.15);">
+                    <span class="tag tag-cyan">Path A — Lead Magnet</span>
+                    <h3>lp-lead-magnet.html</h3>
+                    <p>Single-focus landing page. No nav, no pricing, no distractions. One goal: capture the email in exchange for the free biomarker guide.</p>
+                    <div class="fc-detail">
+                        <div class="fc-item-label">Page Elements</div>
+                        <ul style="font-size: 0.8rem; color: var(--text-muted); padding-left: 16px; margin-top: 8px; line-height: 1.8;">
+                            <li>Headline: "5 Biomarkers Your Doctor Isn't Testing"</li>
+                            <li>3 bullet points of what's inside</li>
+                            <li>Email capture form</li>
+                            <li>Trust badge: "2,400+ founders already optimized"</li>
+                        </ul>
+                    </div>
+                    <div class="funnel-metrics">
+                        <div class="fm-item">
+                            <div class="fm-dot" style="background: var(--accent-green);"></div>
+                            <span>Target CVR: <strong>35-50%</strong></span>
+                        </div>
+                        <div class="fm-item">
+                            <div class="fm-dot" style="background: var(--accent-orange);"></div>
+                            <span>Target CPL: <strong>$2-5</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Path B: Direct Waitlist -->
+                <div class="funnel-card" style="border-color: rgba(108,92,231,0.15);">
+                    <span class="tag tag-purple">Path B — Direct Conversion</span>
+                    <h3>lp-waitlist.html</h3>
+                    <p>Stripped-down version of the main page. Focused on the Arrival Protocol value prop with urgency. For warm/retarget audiences only.</p>
+                    <div class="fc-detail">
+                        <div class="fc-item-label">Page Elements</div>
+                        <ul style="font-size: 0.8rem; color: var(--text-muted); padding-left: 16px; margin-top: 8px; line-height: 1.8;">
+                            <li>Hero: "Tell Us Where You're Headed"</li>
+                            <li>Before/after case study (M.K.)</li>
+                            <li>Value stack + pricing</li>
+                            <li>Scarcity: "347 founding spots remaining"</li>
+                            <li>Waitlist form with destination field</li>
+                        </ul>
+                    </div>
+                    <div class="funnel-metrics">
+                        <div class="fm-item">
+                            <div class="fm-dot" style="background: var(--accent-green);"></div>
+                            <span>Target CVR: <strong>8-15%</strong></span>
+                        </div>
+                        <div class="fm-item">
+                            <div class="fm-dot" style="background: var(--accent-orange);"></div>
+                            <span>Target CPA: <strong>$12-25</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTOR -->
+        <div class="funnel-connector">
+            <div class="arrow-label"><span>Email captured</span></div>
+        </div>
+
+        <!-- STAGE 3: EMAIL NURTURE -->
+        <div class="funnel-stage">
+            <div class="funnel-card">
+                <div class="funnel-card-header">
+                    <div>
+                        <span class="tag tag-green">Stage 3 — Nurture Sequence</span>
+                        <h3>7-Day Email Sequence</h3>
+                        <p>Both paths converge here. Lead magnet subscribers get the guide immediately, then enter the nurture. Waitlist signups get their protocol + enter a parallel upsell sequence.</p>
+                    </div>
+                </div>
+                <div class="email-sequence">
+                    <div class="email-step">
+                        <div class="es-day">Day 0</div>
+                        <div class="es-type">Delivery</div>
+                        <div class="es-subject">Here's your guide / protocol</div>
+                    </div>
+                    <div class="email-step">
+                        <div class="es-day">Day 1</div>
+                        <div class="es-type">Value</div>
+                        <div class="es-subject">"The #1 thing you're getting wrong about jet lag"</div>
+                    </div>
+                    <div class="email-step">
+                        <div class="es-day">Day 3</div>
+                        <div class="es-type">Case Study</div>
+                        <div class="es-subject">"How M.K. presented in Tokyo 6hrs after landing"</div>
+                    </div>
+                    <div class="email-step">
+                        <div class="es-day">Day 5</div>
+                        <div class="es-type">Objection</div>
+                        <div class="es-subject">"I was skeptical too. Then I saw my HRV data."</div>
+                    </div>
+                    <div class="email-step">
+                        <div class="es-day">Day 7</div>
+                        <div class="es-type">CTA</div>
+                        <div class="es-subject">"347 founding spots left. Here's what you get."</div>
+                    </div>
+                </div>
+                <div class="funnel-metrics">
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-cyan);"></div>
+                        <span>Target open rate: <strong>45-55%</strong></span>
+                    </div>
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-green);"></div>
+                        <span>Target click rate: <strong>8-12%</strong></span>
+                    </div>
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-orange);"></div>
+                        <span>Sequence → paid: <strong>5-12%</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTOR -->
+        <div class="funnel-connector">
+            <div class="arrow-label"><span>Conversion event</span></div>
+        </div>
+
+        <!-- STAGE 4: CONVERSION -->
+        <div class="funnel-stage">
+            <div class="funnel-card" style="border-color: rgba(253,203,110,0.15);">
+                <div class="funnel-card-header">
+                    <div>
+                        <span class="tag tag-orange">Stage 4 — Conversion</span>
+                        <h3>Paid Membership Signup</h3>
+                        <p>User converts to one of 3 tiers. The "Inner Circle" ($19/mo) is the target tier — unlimited protocols, best value perception. Founding Member ($49/mo) is the profit maximizer.</p>
+                    </div>
+                </div>
+                <div class="fc-grid">
+                    <div class="fc-item">
+                        <div class="fc-item-label">Tier 1</div>
+                        <div class="fc-item-value">Single Protocol — $9/mo</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Entry tier. 1 protocol/month. Designed to convert to Inner Circle.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Tier 2 (Target)</div>
+                        <div class="fc-item-value" style="color: var(--accent-green);">Inner Circle — $19/mo</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Unlimited protocols. Best LTV:CAC ratio. Most popular badge.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Tier 3 (Anchor)</div>
+                        <div class="fc-item-value">Founding Member — $49/mo</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">1:1 coaching, bloodwork. Makes $19 look like a steal (Hormozi price anchoring).</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Guarantee</div>
+                        <div class="fc-item-value">"Arrive Ready" — 30-Day Refund</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Risk reversal. "If you don't notice a measurable difference, full refund."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTOR -->
+        <div class="funnel-connector">
+            <div class="arrow-label"><span>Post-conversion</span></div>
+        </div>
+
+        <!-- STAGE 5: RETENTION + REFERRAL -->
+        <div class="funnel-stage">
+            <div class="funnel-card" style="border-color: rgba(16,185,129,0.15);">
+                <span class="tag tag-green">Stage 5 — Retention & Referral</span>
+                <h3>Lifetime Value Maximization</h3>
+                <p>Post-conversion mechanics to increase LTV and generate organic growth through referrals.</p>
+                <div class="fc-grid">
+                    <div class="fc-item">
+                        <div class="fc-item-label">Onboarding</div>
+                        <div class="fc-item-value">First Protocol Win</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Immediate protocol generation for their next trip. Time-to-value under 5 minutes.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Upsell</div>
+                        <div class="fc-item-value">Tier Upgrade Trigger</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">After 3rd protocol, prompt upgrade to Inner Circle (if on Single) or Founding Member.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Referral</div>
+                        <div class="fc-item-value">Give $10, Get $10</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Viral loop. Each referral reduces effective CAC and grows the waitlist organically.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Community</div>
+                        <div class="fc-item-value">Private Founder Network</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Shared protocols, trip reports, biohacking intel. Increases switching cost + engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION DIVIDER -->
+        <div class="section-divider">
+            <span>Unit Economics</span>
+        </div>
+
+        <!-- BUDGET / ECONOMICS -->
+        <div class="funnel-stage">
+            <div class="funnel-card">
+                <span class="tag tag-orange">Projected Unit Economics</span>
+                <h3>Budget Model — First 90 Days</h3>
+                <p>Conservative projections based on standard Meta ad benchmarks for B2B SaaS / health niches.</p>
+
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <div class="bc-label">Monthly Ad Spend</div>
+                        <div class="bc-value cyan">$3,000</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="bc-label">Blended CPA</div>
+                        <div class="bc-value orange">$15-25</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="bc-label">Leads / Month</div>
+                        <div class="bc-value green">600-1,000</div>
+                    </div>
+                </div>
+
+                <div class="budget-grid" style="margin-top: 12px;">
+                    <div class="budget-card">
+                        <div class="bc-label">Paid Conversions / Mo</div>
+                        <div class="bc-value green">120-200</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="bc-label">Avg Revenue / User</div>
+                        <div class="bc-value orange">$23/mo</div>
+                    </div>
+                    <div class="budget-card">
+                        <div class="bc-label">Est. 6-Mo LTV</div>
+                        <div class="bc-value cyan">$138</div>
+                    </div>
+                </div>
+
+                <div class="funnel-metrics" style="margin-top: 24px;">
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-green);"></div>
+                        <span>LTV:CAC Ratio: <strong>5.5-9.2x</strong> (healthy &gt; 3x)</span>
+                    </div>
+                    <div class="fm-item">
+                        <div class="fm-dot" style="background: var(--accent-orange);"></div>
+                        <span>Payback Period: <strong>&lt; 30 days</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION DIVIDER -->
+        <div class="section-divider">
+            <span>File Map</span>
+        </div>
+
+        <!-- FILE REFERENCE -->
+        <div class="funnel-stage">
+            <div class="funnel-card">
+                <span class="tag tag-purple">Deliverables</span>
+                <h3>Files in This Funnel</h3>
+                <div class="fc-grid" style="grid-template-columns: 1fr;">
+                    <div class="fc-item">
+                        <div class="fc-item-label">Ad Creatives</div>
+                        <div class="fc-item-value">ads/meta-ad-mockups.html</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">3 feed ads + 3 story ads + copy bank + audience targeting notes</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Funnel Map</div>
+                        <div class="fc-item-value">ads/funnel-map.html</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">This file — full funnel architecture from ad to retention</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Landing Page — Lead Magnet</div>
+                        <div class="fc-item-value">ads/lp-lead-magnet.html</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Cold traffic landing page. Single goal: email capture for "5 Biomarkers" guide.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Landing Page — Waitlist</div>
+                        <div class="fc-item-value">ads/lp-waitlist.html</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Warm/retarget landing page. Stripped main page with case study + scarcity + form.</p>
+                    </div>
+                    <div class="fc-item">
+                        <div class="fc-item-label">Main Site</div>
+                        <div class="fc-item-value">index.html + styles.css</div>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Full marketing page with all Hormozi/Suby/Brecka techniques. Organic + SEO traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

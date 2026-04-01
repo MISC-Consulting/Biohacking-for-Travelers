@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Guide: 5 Biomarkers Every Traveling Founder Must Track | BioEdge</title>
+    <meta name="description" content="Your annual physical checks 15 markers. We check 87. Download the free guide to the 5 biomarkers that predict burnout, brain fog, and accelerated aging in frequent travelers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #16161f;
+            --bg-elevated: #1e1e2a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b82;
+            --accent-primary: #6c5ce7;
+            --accent-secondary: #a29bfe;
+            --accent-cyan: #00cec9;
+            --accent-green: #00b894;
+            --accent-orange: #fdcb6e;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #00cec9);
+            --border: rgba(255,255,255,0.06);
+            --radius: 12px;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Minimal top bar */
+        .top-bar {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .top-bar .logo {
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .top-bar .logo-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Main content */
+        .lp-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .lp-container {
+            max-width: 560px;
+            width: 100%;
+        }
+
+        /* Badge */
+        .lp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(0,206,201,0.1);
+            border: 1px solid rgba(0,206,201,0.2);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        /* Headline */
+        .lp-headline {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lp-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* What's inside list */
+        .whats-inside {
+            margin-bottom: 32px;
+        }
+        .whats-inside h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+        .whats-inside ul {
+            list-style: none;
+        }
+        .whats-inside li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            padding: 8px 0 8px 28px;
+            position: relative;
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border);
+        }
+        .whats-inside li:last-child { border-bottom: none; }
+        .whats-inside li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* Form */
+        .lp-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .lp-form h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .form-input {
+            flex: 1;
+            padding: 14px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            border-color: var(--accent-primary);
+        }
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* Social proof bar */
+        .social-proof {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 32px;
+        }
+        .social-proof p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .social-proof strong {
+            color: var(--text-secondary);
+        }
+
+        /* Inline testimonial */
+        .lp-testimonial {
+            text-align: center;
+            margin-top: 32px;
+            padding: 20px 24px;
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            background: rgba(108,92,231,0.04);
+        }
+        .lp-testimonial p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+        .lp-testimonial strong {
+            font-style: normal;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        .lp-footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .lp-footer p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .lp-footer a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .form-row { flex-direction: column; }
+            .lp-main { padding: 24px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">&#9889;</span>
+            <span>BioEdge</span>
+        </a>
+    </div>
+
+    <main class="lp-main">
+        <div class="lp-container">
+            <div class="lp-badge">Free Guide — No Email Spam</div>
+
+            <h1 class="lp-headline">
+                The 5 Biomarkers Every Traveling Founder <span class="gradient-text">Must Track</span>
+                <br>(That Your Doctor Isn't Testing)
+            </h1>
+
+            <p class="lp-subtitle">
+                Your annual physical checks 15 markers. We check 87. This free guide reveals the 5 critical biomarkers that predict burnout, brain fog, and accelerated aging in frequent travelers — and what your numbers should actually be.
+            </p>
+
+            <div class="whats-inside">
+                <h3>Inside the guide</h3>
+                <ul>
+                    <li>Why "normal" lab ranges aren't optimal — and the ranges you should aim for</li>
+                    <li>The single biomarker that predicts burnout 6 months before it hits</li>
+                    <li>How to read your Oura Ring / WHOOP data like a biohacker, not a consumer</li>
+                    <li>The $47 blood panel add-on your doctor never orders (but every biohacker gets)</li>
+                    <li>A 1-page cheat sheet: what to track, how often, and what the numbers mean</li>
+                </ul>
+            </div>
+
+            <div class="lp-form">
+                <h3>Get the guide — free, instantly.</h3>
+                <form id="leadForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="First name" required class="form-input">
+                        <input type="email" placeholder="your@email.com" required class="form-input">
+                    </div>
+                    <button type="submit" class="btn-submit">Send Me the Free Guide</button>
+                </form>
+                <p class="form-note">We'll email you the PDF immediately. No spam. Unsubscribe anytime.</p>
+            </div>
+
+            <div class="social-proof">
+                <p><strong>2,400+ founders</strong> have already downloaded this guide</p>
+            </div>
+
+            <div class="lp-testimonial">
+                <p>"I showed my biomarker results to my doctor after reading this guide. He ordered 3 tests he'd never run before. Two came back flagged. I caught something early because of a free PDF." — <strong>D.L., SaaS Founder</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="lp-footer">
+        <p>&copy; 2026 BioEdge Protocol. <a href="index.html">Main Site</a> &bull; Disclaimer: BioEdge provides educational content, not medical advice.</p>
+    </footer>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = 'Check your inbox!';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Free Arrival Protocol | BioEdge</title>
+    <meta name="description" content="Tell us where you're headed. Our AI builds a personalized biohacking protocol so you land sharp, sleep deep, and perform from day one. First protocol is free.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #16161f;
+            --bg-elevated: #1e1e2a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b82;
+            --accent-primary: #6c5ce7;
+            --accent-secondary: #a29bfe;
+            --accent-cyan: #00cec9;
+            --accent-green: #00b894;
+            --accent-orange: #fdcb6e;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #00cec9);
+            --border: rgba(255,255,255,0.06);
+            --radius: 12px;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Top bar */
+        .top-bar {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero */
+        .lp-hero {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .lp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+        .lp-badge.primary {
+            color: var(--accent-cyan);
+            background: rgba(0,206,201,0.1);
+            border: 1px solid rgba(0,206,201,0.2);
+        }
+        .lp-headline {
+            font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .lp-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto 32px;
+        }
+
+        /* Metrics row */
+        .lp-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .lp-metric {
+            text-align: center;
+        }
+        .lp-metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .lp-metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Form section */
+        .lp-form-section {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        .lp-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+        }
+        .lp-form-card h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        .lp-form-card > p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            border-color: var(--accent-primary);
+        }
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 0;
+        }
+        .form-row .form-input {
+            flex: 1;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* How it works strip */
+        .how-strip {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .how-strip h3 {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .how-step {
+            text-align: center;
+            padding: 20px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .how-step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(108,92,231,0.15);
+            color: var(--accent-secondary);
+            font-weight: 800;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .how-step h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .how-step p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* What's included */
+        .included-section {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        .included-section h3 {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .included-list {
+            list-style: none;
+        }
+        .included-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .included-list li:last-child { border-bottom: none; }
+        .included-check {
+            color: var(--accent-green);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Testimonials */
+        .lp-testimonials {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .lp-testimonial {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .lp-testimonial p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .lp-testimonial cite {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Guarantee */
+        .lp-guarantee {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            text-align: center;
+        }
+        .lp-guarantee-box {
+            padding: 24px;
+            border: 1px dashed var(--accent-green);
+            border-radius: var(--radius);
+            background: rgba(0,184,148,0.04);
+        }
+        .lp-guarantee-box h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+        .lp-guarantee-box p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            text-align: center;
+        }
+        .bottom-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: var(--gradient);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .bottom-cta a:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .lp-footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .lp-footer p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .lp-footer a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+
+        /* Scarcity bar */
+        .scarcity-bar {
+            background: rgba(253,203,110,0.06);
+            border-bottom: 1px solid rgba(253,203,110,0.15);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--accent-orange);
+        }
+        .scarcity-bar strong {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 640px) {
+            .how-steps { grid-template-columns: 1fr; }
+            .lp-testimonials { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; }
+            .lp-metrics { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scarcity-bar">
+        Founding member pricing is limited to 500 spots. <strong>347 remaining.</strong>
+    </div>
+
+    <div class="top-bar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">&#9889;</span>
+            <span>BioEdge</span>
+        </a>
+    </div>
+
+    <!-- Hero -->
+    <div class="lp-hero">
+        <div class="lp-badge primary">The Arrival Protocol &mdash; AI-Powered</div>
+
+        <h1 class="lp-headline">
+            Tell Us Where You're Going.<br>
+            We'll Make Sure You <span class="gradient-text">Arrive at 100%.</span>
+        </h1>
+
+        <p class="lp-subtitle">
+            Our AI builds a personalized biohacking protocol for every trip — circadian reset, supplement stacks, meal timing, sleep architecture — so you land sharp, not shattered. First protocol is free.
+        </p>
+
+        <div class="lp-metrics">
+            <div class="lp-metric">
+                <div class="lp-metric-value">3.2x</div>
+                <div class="lp-metric-label">Faster jet lag recovery</div>
+            </div>
+            <div class="lp-metric">
+                <div class="lp-metric-value">+40%</div>
+                <div class="lp-metric-label">Deep sleep in 14 days</div>
+            </div>
+            <div class="lp-metric">
+                <div class="lp-metric-value">2,400+</div>
+                <div class="lp-metric-label">Founders optimized</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="lp-form-section">
+        <div class="lp-form-card">
+            <h2>Get Your Free Arrival Protocol</h2>
+            <p>No credit card. No itinerary uploads. Just tell us where you're headed.</p>
+            <form id="waitlistForm">
+                <div class="form-row">
+                    <input type="text" placeholder="First name" required class="form-input">
+                    <input type="email" placeholder="your@email.com" required class="form-input">
+                </div>
+                <input type="text" placeholder="Where are you headed? (e.g. Tokyo, Bali, NYC...)" class="form-input">
+                <button type="submit" class="btn-submit">
+                    Build My Free Protocol
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </form>
+            <p class="form-note">Your first protocol is free. Takes 60 seconds. Protocol delivered in minutes.</p>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="how-strip">
+        <h3>How It Works</h3>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="how-step-number">1</div>
+                <h4>Tell Us Your Trip</h4>
+                <p>Where you're going, when, and what's on your schedule.</p>
+            </div>
+            <div class="how-step">
+                <div class="how-step-number">2</div>
+                <h4>AI Builds Your Protocol</h4>
+                <p>Timezone, climate, altitude, schedule — all factored in.</p>
+            </div>
+            <div class="how-step">
+                <div class="how-step-number">3</div>
+                <h4>Arrive at 100%</h4>
+                <p>Pre-flight to day one. Sequenced so you land sharp.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What's Included -->
+    <div class="included-section">
+        <h3>Every Protocol Includes</h3>
+        <ul class="included-list">
+            <li><span class="included-check">&#10003;</span> Circadian pre-shifting schedule (when to seek/avoid light)</li>
+            <li><span class="included-check">&#10003;</span> In-flight nutrition & fasting windows</li>
+            <li><span class="included-check">&#10003;</span> Destination-specific supplement stack with dosages</li>
+            <li><span class="included-check">&#10003;</span> Sleep architecture reset for your new timezone</li>
+            <li><span class="included-check">&#10003;</span> Day-one performance protocol (morning routine)</li>
+            <li><span class="included-check">&#10003;</span> Cold/heat therapy adjusted for local climate</li>
+        </ul>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="lp-testimonials">
+        <div class="lp-testimonial">
+            <p>"I presented to investors in Tokyo 6 hours after landing. That alone paid for a year of membership."</p>
+            <cite>— M.K., Series B Founder</cite>
+        </div>
+        <div class="lp-testimonial">
+            <p>"I told them I was flying to Dubai for a 3-day conference. I landed feeling like I'd slept in my own bed."</p>
+            <cite>— R.P., Agency CEO</cite>
+        </div>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="lp-guarantee">
+        <div class="lp-guarantee-box">
+            <h4>The "Arrive Ready" Guarantee</h4>
+            <p>Try it for 30 days. If you don't notice a measurable difference in your energy, sleep, or travel recovery — we'll refund every cent. No questions. No hoops.</p>
+        </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+        <a href="#" onclick="document.getElementById('waitlistForm').scrollIntoView({behavior:'smooth'});return false;">
+            Get My Free Protocol
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+
+    <footer class="lp-footer">
+        <p>&copy; 2026 BioEdge Protocol. <a href="index.html">Main Site</a> &bull; Disclaimer: BioEdge provides educational content, not medical advice.</p>
+    </footer>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = 'Your protocol is being built!';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html>

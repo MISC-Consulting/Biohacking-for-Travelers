@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioEdge — Meta Ad Creative Mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #16161f;
+            --bg-elevated: #1e1e2a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b82;
+            --accent-primary: #6c5ce7;
+            --accent-cyan: #00cec9;
+            --accent-green: #00b894;
+            --accent-orange: #fdcb6e;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #00cec9);
+            --border: rgba(255,255,255,0.06);
+            --radius: 12px;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .page-header .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .campaign-section {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+        }
+        .campaign-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(0,206,201,0.1);
+            border: 1px solid rgba(0,206,201,0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .campaign-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .campaign-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+        }
+        .ad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        .ad-variation {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .ad-variation-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ad-variation-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+        .ad-variation-format {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Feed Ad Mockup --- */
+        .feed-ad {
+            background: #fff;
+            color: #1c1e21;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .feed-ad-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+        }
+        .feed-ad-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .feed-ad-page-info {
+            flex: 1;
+        }
+        .feed-ad-page-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1c1e21;
+        }
+        .feed-ad-sponsored {
+            font-size: 0.75rem;
+            color: #65676b;
+        }
+        .feed-ad-copy {
+            padding: 0 16px 12px;
+            font-size: 0.9rem;
+            color: #1c1e21;
+            line-height: 1.5;
+        }
+        .feed-ad-copy .hook {
+            font-weight: 700;
+        }
+        .feed-ad-copy .see-more {
+            color: #65676b;
+            cursor: pointer;
+        }
+        .feed-ad-image {
+            width: 100%;
+            aspect-ratio: 1.91/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .feed-ad-image.variant-a {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a103a 50%, #0a1a2a 100%);
+        }
+        .feed-ad-image.variant-b {
+            background: linear-gradient(135deg, #0a0f1a, #0d1a2d, #0a1520);
+        }
+        .feed-ad-image.variant-c {
+            background: linear-gradient(135deg, #1a0a0a, #2a1020, #1a0a20);
+        }
+        .feed-ad-image.variant-d {
+            background: linear-gradient(135deg, #0a1a10, #0d2a1a, #0a2015);
+        }
+        .feed-ad-image .ad-headline {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            max-width: 400px;
+        }
+        .feed-ad-image .ad-subline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+            max-width: 350px;
+        }
+        .feed-ad-image .ad-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(108,92,231,0.3);
+            border: 1px solid rgba(108,92,231,0.4);
+            color: #a29bfe;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+        .feed-ad-image .ad-logo {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .feed-ad-image .ad-stat {
+            display: inline-flex;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        .feed-ad-image .ad-stat span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            background: rgba(0,206,201,0.1);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        .feed-ad-cta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-top: 1px solid #e4e6eb;
+        }
+        .feed-ad-cta-bar .cta-left {
+            flex: 1;
+        }
+        .feed-ad-cta-bar .cta-url {
+            font-size: 0.75rem;
+            color: #65676b;
+            text-transform: uppercase;
+        }
+        .feed-ad-cta-bar .cta-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+        .feed-ad-cta-bar .cta-desc {
+            font-size: 0.8rem;
+            color: #65676b;
+        }
+        .feed-ad-cta-bar .cta-button {
+            background: #0866ff;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            white-space: nowrap;
+        }
+
+        /* --- Story Ad Mockup --- */
+        .story-ad-frame {
+            width: 270px;
+            height: 480px;
+            margin: 20px auto;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .story-ad-frame.story-a {
+            background: linear-gradient(180deg, #0a0a1f 0%, #1a0a3a 40%, #0a0a1f 100%);
+        }
+        .story-ad-frame.story-b {
+            background: linear-gradient(180deg, #0a1a20 0%, #0a2a30 40%, #0a1020 100%);
+        }
+        .story-progress {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        .story-progress-fill {
+            height: 100%;
+            width: 40%;
+            background: #fff;
+            border-radius: 10px;
+        }
+        .story-ad-brand {
+            position: absolute;
+            top: 20px;
+            left: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .story-ad-brand-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .story-ad-brand-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .story-ad-brand-tag {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .story-content {
+            padding: 24px 20px 60px;
+            text-align: center;
+        }
+        .story-headline {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        .story-subline {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 16px;
+        }
+        .story-cta {
+            display: inline-block;
+            background: #fff;
+            color: #0a0a1f;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 100px;
+        }
+        .story-swipe {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .story-swipe svg {
+            animation: swipe-up 1.5s infinite;
+        }
+        .story-swipe span {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        @keyframes swipe-up {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        /* --- Notes section under each ad --- */
+        .ad-notes {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .ad-notes h5 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .ad-notes ul {
+            list-style: none;
+        }
+        .ad-notes li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 3px 0 3px 16px;
+            position: relative;
+        }
+        .ad-notes li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        /* --- Copy Bank Section --- */
+        .copy-bank {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        .copy-bank h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .copy-bank > p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+        }
+        .copy-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .copy-table th {
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .copy-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .copy-table td:first-child {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            white-space: nowrap;
+            width: 140px;
+        }
+        .copy-table td:nth-child(2) {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .copy-table td:last-child {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            width: 160px;
+        }
+
+        /* --- Audience Targeting --- */
+        .targeting-section {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        .targeting-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+        .targeting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .targeting-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+        .targeting-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .targeting-card .audience-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .targeting-card ul {
+            list-style: none;
+        }
+        .targeting-card li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 3px 0 3px 16px;
+            position: relative;
+        }
+        .targeting-card li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+
+        @media (max-width: 768px) {
+            .ad-grid { grid-template-columns: 1fr; }
+            .feed-ad-image .ad-headline { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&larr; Back to landing page</a>
+
+    <div class="page-header">
+        <h1>Meta Ad Creative <span class="gradient-text">Mockups</span></h1>
+        <p>Four campaign angles with feed + story variations, copy bank, and audience targeting for each. Ready to brief a designer or build in Meta Ads Manager.</p>
+    </div>
+
+    <!-- ===== CAMPAIGN 1: PAIN / PROBLEM AWARE ===== -->
+    <div class="campaign-section">
+        <div class="campaign-label">Campaign 1 — TOF (Cold)</div>
+        <div class="campaign-title">The Pain Angle: "You're Losing Days"</div>
+        <p class="campaign-meta">Objective: Awareness / Traffic &bull; Audience: Frequent business travelers, founders &bull; Destination: Lead Magnet LP</p>
+
+        <div class="ad-grid">
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation A — Feed</span>
+                    <span class="ad-variation-format">1200x628</span>
+                </div>
+                <div class="feed-ad">
+                    <div class="feed-ad-header">
+                        <div class="feed-ad-avatar">B</div>
+                        <div class="feed-ad-page-info">
+                            <div class="feed-ad-page-name">BioEdge</div>
+                            <div class="feed-ad-sponsored">Sponsored &bull; &#127758;</div>
+                        </div>
+                    </div>
+                    <div class="feed-ad-copy">
+                        <span class="hook">You're not burned out. Your biology is broken.</span><br><br>
+                        Every international flight destroys your circadian rhythm, tanks your HRV, and cuts your executive function by 40%.<br><br>
+                        You don't need another meditation app. You need a protocol.<br><br>
+                        <span class="see-more">... See more</span>
+                    </div>
+                    <div class="feed-ad-image variant-a">
+                        <div class="ad-badge">Free Guide</div>
+                        <div class="ad-headline">You Lose 2-3 Days Every International Trip.</div>
+                        <div class="ad-subline">It's not jet lag. It's a biology problem. And it's fixable.</div>
+                        <div class="ad-stat">
+                            <span>-40% executive function</span>
+                            <span>2-3 days lost/trip</span>
+                        </div>
+                        <div class="ad-logo">BioEdge</div>
+                    </div>
+                    <div class="feed-ad-cta-bar">
+                        <div class="cta-left">
+                            <div class="cta-url">bioedge.com</div>
+                            <div class="cta-title">The 5 Biomarkers Your Doctor Isn't Testing</div>
+                            <div class="cta-desc">Free guide for traveling founders</div>
+                        </div>
+                        <button class="cta-button">Download</button>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>Hook: Brecka-style deficiency reframe ("not burned out, broken")</li>
+                        <li>Pain stat in image: creates pattern interrupt in feed</li>
+                        <li>CTA: Lead magnet download (low commitment)</li>
+                        <li>Test: Swap "biology is broken" with "circadian rhythm is shattered"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation A — Story</span>
+                    <span class="ad-variation-format">1080x1920</span>
+                </div>
+                <div class="story-ad-frame story-a">
+                    <div class="story-progress"><div class="story-progress-fill"></div></div>
+                    <div class="story-ad-brand">
+                        <div class="story-ad-brand-icon">B</div>
+                        <div>
+                            <div class="story-ad-brand-name">BioEdge</div>
+                            <div class="story-ad-brand-tag">Sponsored</div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-headline">Every flight is costing you 2-3 days of peak performance.</div>
+                        <div class="story-subline">Your biology wasn't designed for this. But there's a fix.</div>
+                        <div class="story-cta">Get the Free Guide</div>
+                    </div>
+                    <div class="story-swipe">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                        <span>Swipe Up</span>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>Vertical format for Stories/Reels placement</li>
+                        <li>Bold headline, minimal copy — 3 seconds to hook</li>
+                        <li>Same lead magnet CTA as feed variation</li>
+                        <li>Dark gradient matches brand, stands out in Stories feed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CAMPAIGN 2: SOLUTION AWARE ===== -->
+    <div class="campaign-section">
+        <div class="campaign-label">Campaign 2 — MOF (Warm)</div>
+        <div class="campaign-title">The Solution Angle: "The Arrival Protocol"</div>
+        <p class="campaign-meta">Objective: Conversions / Lead Gen &bull; Audience: Engaged visitors, lookalikes &bull; Destination: Main Landing Page</p>
+
+        <div class="ad-grid">
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation B — Feed</span>
+                    <span class="ad-variation-format">1200x628</span>
+                </div>
+                <div class="feed-ad">
+                    <div class="feed-ad-header">
+                        <div class="feed-ad-avatar">B</div>
+                        <div class="feed-ad-page-info">
+                            <div class="feed-ad-page-name">BioEdge</div>
+                            <div class="feed-ad-sponsored">Sponsored &bull; &#127758;</div>
+                        </div>
+                    </div>
+                    <div class="feed-ad-copy">
+                        <span class="hook">Tell us where you're flying. We'll make sure you arrive at 100%.</span><br><br>
+                        Our AI analyzes your destination, timezone shift, climate, and schedule — then builds a personalized Arrival Protocol so you land sharp, not shattered.<br><br>
+                        Sleep architecture. Circadian reset. Supplement stacks. All sequenced to your trip.<br><br>
+                        2,400+ founders already optimized. First protocol is free.<br><br>
+                        <span class="see-more">... See more</span>
+                    </div>
+                    <div class="feed-ad-image variant-b">
+                        <div class="ad-badge">AI-Powered</div>
+                        <div class="ad-headline">Tell Us Where You're Going. Arrive at 100%.</div>
+                        <div class="ad-subline">AI-personalized biohacking protocols for every trip.</div>
+                        <div class="ad-stat">
+                            <span>3.2x faster recovery</span>
+                            <span>+40% deep sleep</span>
+                        </div>
+                        <div class="ad-logo">BioEdge</div>
+                    </div>
+                    <div class="feed-ad-cta-bar">
+                        <div class="cta-left">
+                            <div class="cta-url">bioedge.com</div>
+                            <div class="cta-title">Get Your Free Arrival Protocol</div>
+                            <div class="cta-desc">Personalized for your next trip</div>
+                        </div>
+                        <button class="cta-button">Sign Up</button>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>Hook: Direct value proposition — tell/get format</li>
+                        <li>Social proof embedded: "2,400+ founders"</li>
+                        <li>Specific results in image badges create credibility</li>
+                        <li>CTA: Free protocol (higher intent than lead magnet)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation B — Story</span>
+                    <span class="ad-variation-format">1080x1920</span>
+                </div>
+                <div class="story-ad-frame story-b">
+                    <div class="story-progress"><div class="story-progress-fill"></div></div>
+                    <div class="story-ad-brand">
+                        <div class="story-ad-brand-icon">B</div>
+                        <div>
+                            <div class="story-ad-brand-name">BioEdge</div>
+                            <div class="story-ad-brand-tag">Sponsored</div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-headline">SFO &rarr; Tokyo. Zero jet lag. Day-one performance.</div>
+                        <div class="story-subline">The Arrival Protocol builds a custom plan for every trip you take.</div>
+                        <div class="story-cta">Get Your Free Protocol</div>
+                    </div>
+                    <div class="story-swipe">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                        <span>Swipe Up</span>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>Specific route creates relatability for frequent fliers</li>
+                        <li>Proprietary name "Arrival Protocol" builds brand recall</li>
+                        <li>Test variations: "LHR → NYC", "LAX → Dubai"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CAMPAIGN 3: SOCIAL PROOF / RETARGETING ===== -->
+    <div class="campaign-section">
+        <div class="campaign-label">Campaign 3 — BOF (Retarget)</div>
+        <div class="campaign-title">The Proof Angle: "Real Founders, Real Data"</div>
+        <p class="campaign-meta">Objective: Conversions &bull; Audience: LP visitors, lead magnet downloaders &bull; Destination: Pricing Section</p>
+
+        <div class="ad-grid">
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation C — Feed</span>
+                    <span class="ad-variation-format">1200x628</span>
+                </div>
+                <div class="feed-ad">
+                    <div class="feed-ad-header">
+                        <div class="feed-ad-avatar">B</div>
+                        <div class="feed-ad-page-info">
+                            <div class="feed-ad-page-name">BioEdge</div>
+                            <div class="feed-ad-sponsored">Sponsored &bull; &#127758;</div>
+                        </div>
+                    </div>
+                    <div class="feed-ad-copy">
+                        <span class="hook">"I presented to investors in Tokyo 6 hours after landing. That alone paid for a year."</span><br><br>
+                        M.K. was losing 2-3 days every international trip. After his first Arrival Protocol:<br><br>
+                        &#10003; Deep sleep: 22 min → 1hr 38min (night 1)<br>
+                        &#10003; HRV on arrival: 18ms → 47ms<br>
+                        &#10003; Full adaptation: 3.5 days → 12 hours<br><br>
+                        Join 2,400+ founders who refuse to lose days to jet lag.<br>
+                        <span class="see-more">... See more</span>
+                    </div>
+                    <div class="feed-ad-image variant-c">
+                        <div class="ad-badge">Case Study</div>
+                        <div class="ad-headline">Deep Sleep: 22min → 1hr 38min. Night One.</div>
+                        <div class="ad-subline">A real founder. Real data. Real Arrival Protocol results.</div>
+                        <div class="ad-stat">
+                            <span>Series B Founder</span>
+                            <span>FinTech</span>
+                        </div>
+                        <div class="ad-logo">BioEdge</div>
+                    </div>
+                    <div class="feed-ad-cta-bar">
+                        <div class="cta-left">
+                            <div class="cta-url">bioedge.com</div>
+                            <div class="cta-title">See the Full Case Study</div>
+                            <div class="cta-desc">$19/mo — 30-day "Arrive Ready" guarantee</div>
+                        </div>
+                        <button class="cta-button">Learn More</button>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>Testimonial hook — most engaging ad format on Meta</li>
+                        <li>Specific before/after numbers create irrefutable proof</li>
+                        <li>Retargets people who visited LP but didn't convert</li>
+                        <li>Guarantee mentioned in CTA bar reduces risk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ad-variation">
+                <div class="ad-variation-header">
+                    <span class="ad-variation-label">Variation D — Feed (UGC-style)</span>
+                    <span class="ad-variation-format">1080x1080</span>
+                </div>
+                <div class="feed-ad">
+                    <div class="feed-ad-header">
+                        <div class="feed-ad-avatar">B</div>
+                        <div class="feed-ad-page-info">
+                            <div class="feed-ad-page-name">BioEdge</div>
+                            <div class="feed-ad-sponsored">Sponsored &bull; &#127758;</div>
+                        </div>
+                    </div>
+                    <div class="feed-ad-copy">
+                        <span class="hook">I used to accept jet lag as the cost of doing business. Then I found BioEdge.</span><br><br>
+                        My Oura scores after 1 month:<br>
+                        &#8226; Deep sleep: 45min → 1hr 52min<br>
+                        &#8226; Readiness: Never below 85<br>
+                        &#8226; Afternoon crashes: Gone<br>
+                        &#8226; HRV: Up 30%<br><br>
+                        This isn't wellness fluff. It's data-driven protocols built by AI for your exact trip. $19/mo.<br>
+                        <span class="see-more">... See more</span>
+                    </div>
+                    <div class="feed-ad-image variant-d">
+                        <div class="ad-badge">Member Results</div>
+                        <div class="ad-headline">Oura Readiness: Never Below 85 Since Month One.</div>
+                        <div class="ad-subline">"I approach this the same way I approach growth metrics."</div>
+                        <div class="ad-stat">
+                            <span>+30% HRV</span>
+                            <span>0 crashes</span>
+                        </div>
+                        <div class="ad-logo">BioEdge</div>
+                    </div>
+                    <div class="feed-ad-cta-bar">
+                        <div class="cta-left">
+                            <div class="cta-url">bioedge.com</div>
+                            <div class="cta-title">First Protocol Free — No Credit Card</div>
+                            <div class="cta-desc">Join 2,400+ optimized founders</div>
+                        </div>
+                        <button class="cta-button">Sign Up</button>
+                    </div>
+                </div>
+                <div class="ad-notes">
+                    <h5>Creative Notes</h5>
+                    <ul>
+                        <li>UGC-style first-person copy — highest performing format in 2025/26</li>
+                        <li>Wearable data (Oura) creates tangible proof for data-driven audience</li>
+                        <li>Framed as "fellow founder" story, not company ad</li>
+                        <li>Test: Replace with real UGC video once you have member content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== COPY BANK ===== -->
+    <div class="copy-bank">
+        <h2>Ad Copy Bank</h2>
+        <p>Pre-written hooks and body copy for testing across all campaigns. Mix and match.</p>
+        <table class="copy-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Copy</th>
+                    <th>Use For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hook (Pain)</td>
+                    <td>"You're not burned out. Your biology is broken."</td>
+                    <td>TOF cold traffic</td>
+                </tr>
+                <tr>
+                    <td>Hook (Pain)</td>
+                    <td>"Every flight you take is biological warfare — and you're unarmed."</td>
+                    <td>TOF cold traffic</td>
+                </tr>
+                <tr>
+                    <td>Hook (Curiosity)</td>
+                    <td>"What if your worst business trips weren't a travel problem — but a biology problem?"</td>
+                    <td>TOF cold traffic</td>
+                </tr>
+                <tr>
+                    <td>Hook (Solution)</td>
+                    <td>"Tell us where you're flying. We'll make sure you arrive at 100%."</td>
+                    <td>MOF warm traffic</td>
+                </tr>
+                <tr>
+                    <td>Hook (Solution)</td>
+                    <td>"SFO → Tokyo. Zero jet lag. Day-one performance. Here's the protocol."</td>
+                    <td>MOF warm traffic</td>
+                </tr>
+                <tr>
+                    <td>Hook (Proof)</td>
+                    <td>"I presented to investors in Tokyo 6 hours after landing. That alone paid for a year."</td>
+                    <td>BOF retarget</td>
+                </tr>
+                <tr>
+                    <td>Hook (Proof)</td>
+                    <td>"Deep sleep went from 45min to 1hr 52min in my first month. My Oura hasn't dipped below 85."</td>
+                    <td>BOF retarget</td>
+                </tr>
+                <tr>
+                    <td>Hook (UGC)</td>
+                    <td>"I used to accept jet lag as the cost of doing business. Then I found BioEdge."</td>
+                    <td>BOF retarget</td>
+                </tr>
+                <tr>
+                    <td>Body (Value)</td>
+                    <td>"For less than a coffee a day, you get AI-personalized travel protocols, supplement stacks, circadian resets, and a private community of 2,400+ founders."</td>
+                    <td>Any campaign</td>
+                </tr>
+                <tr>
+                    <td>Body (Scarcity)</td>
+                    <td>"Founding member pricing ($19/mo) is limited to 500 spots. 347 remaining."</td>
+                    <td>BOF retarget</td>
+                </tr>
+                <tr>
+                    <td>CTA</td>
+                    <td>"First protocol is free. No credit card. Tell us where you're headed."</td>
+                    <td>Any campaign</td>
+                </tr>
+                <tr>
+                    <td>CTA</td>
+                    <td>"Get the free guide: 5 Biomarkers Your Doctor Isn't Testing."</td>
+                    <td>TOF lead magnet</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ===== AUDIENCE TARGETING ===== -->
+    <div class="targeting-section">
+        <h2>Audience Targeting Blueprint</h2>
+        <div class="targeting-grid">
+            <div class="targeting-card">
+                <h4>Cold — Interest-Based</h4>
+                <p class="audience-desc">Top-of-funnel awareness and lead magnet</p>
+                <ul>
+                    <li>Interests: Business travel, Entrepreneurship, Biohacking</li>
+                    <li>Interests: Oura Ring, WHOOP, Andrew Huberman</li>
+                    <li>Interests: Startup founders, YC, TechCrunch</li>
+                    <li>Behaviors: Frequent international travelers</li>
+                    <li>Job titles: CEO, Founder, Managing Director</li>
+                    <li>Age: 28-55 | Income: Top 10%</li>
+                    <li>Exclude: Current customers, LP visitors</li>
+                </ul>
+            </div>
+            <div class="targeting-card">
+                <h4>Warm — Lookalike + Engaged</h4>
+                <p class="audience-desc">Mid-funnel solution-aware</p>
+                <ul>
+                    <li>1% Lookalike of lead magnet downloaders</li>
+                    <li>1% Lookalike of LP visitors (top 25% time on page)</li>
+                    <li>Instagram/FB page engagers (90 days)</li>
+                    <li>Video viewers (75%+ watched)</li>
+                    <li>Layered with: Frequent travelers interest</li>
+                    <li>Exclude: Current customers</li>
+                </ul>
+            </div>
+            <div class="targeting-card">
+                <h4>Hot — Retarget</h4>
+                <p class="audience-desc">Bottom-of-funnel conversion</p>
+                <ul>
+                    <li>LP visitors who didn't convert (7-30 days)</li>
+                    <li>Lead magnet downloaders who didn't sign up</li>
+                    <li>Pricing page visitors</li>
+                    <li>Cart/form abandoners</li>
+                    <li>Email list — unsubscribed or disengaged</li>
+                    <li>Frequency cap: 3 impressions/day</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioEdge | The Executive Biohacking Protocol</title>
+    <meta name="description" content="A personalized performance system for founders, executives, and elite operators. Take the 3-minute protocol diagnostic.">
+    <meta property="og:title" content="The Executive Biohacking Protocol">
+    <meta property="og:description" content="A personalized performance system for founders, executives, and elite operators.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="showSection('landing');return false;">
+                <span class="logo-icon">&#9889;</span>
+                <span>BioEdge</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#how" onclick="showSection('landing')">How It Works</a>
+                <a href="#protocols">Protocols</a>
+                <a href="#science">The Science</a>
+                <a href="#results">Results</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-primary btn-sm" onclick="showSection('diagnostic');return false;">Take the Diagnostic</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== SECTION 1: LANDING PAGE ===== -->
+    <div id="section-landing">
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Now accepting applications for Q2 2026
+                </div>
+                <h1 class="hero-title">
+                    The Executive<br><span class="gradient-text">Biohacking Protocol</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A personalized performance system for founders, executives, and elite operators. Optimize cognition, recovery, and energy with protocols backed by science and tailored to your lifestyle.
+                </p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary btn-lg" onclick="showSection('diagnostic');return false;">
+                        Take the 3-Minute Protocol Diagnostic
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <span class="metric-value">93%</span>
+                        <span class="metric-label">Report improved focus within 14 days</span>
+                    </div>
+                    <span class="metric-divider"></span>
+                    <div class="metric">
+                        <span class="metric-value">2.4x</span>
+                        <span class="metric-label">Average energy improvement</span>
+                    </div>
+                    <span class="metric-divider"></span>
+                    <div class="metric">
+                        <span class="metric-value">47min</span>
+                        <span class="metric-label">Extra deep sleep per night</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section section-dark" id="problem">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">The Problem</span>
+                <h2>You're Operating at <span class="gradient-text">60% Capacity</span></h2>
+                <p class="section-desc">Most high performers lose 2-4 productive hours daily to suboptimal biology. Brain fog after lunch. Poor sleep despite exhaustion. Energy crashes before your most important meetings.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>The Afternoon Crash</h3>
+                    <p>Your calendar says "strategy session" but your body says "nap." Blood sugar spikes, cortisol dysregulation, and poor meal timing destroy your most productive hours.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3>Travel-Wrecked Performance</h3>
+                    <p>Every timezone change costs you 1-3 days of peak output. You arrive at deals, conferences, and board meetings running on caffeine and willpower.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    </div>
+                    <h3>Supplement Chaos</h3>
+                    <p>You've tried 15 supplements based on podcast recommendations. No system. No tracking. No idea what's actually working or wasting your money.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <h3>Sleep Debt Compounding</h3>
+                    <p>You're getting 5-6 hours of fragmented sleep. Each night builds on the last. After a week, your cognitive performance matches someone legally drunk.</p>
+                </div>
+            </div>
+            <div class="problem-quote fade-in">
+                <blockquote>"I was spending $3K/month on health optimization with zero system. Different doctors, random supplements, no coordination. I needed a protocol, not more products."</blockquote>
+                <cite>- Series B Founder, 38</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">How It Works</span>
+                <h2>Your Protocol in <span class="gradient-text">3 Steps</span></h2>
+                <p class="section-desc">We don't guess. We assess, build, and iterate based on your biology, schedule, and goals.</p>
+            </div>
+            <div class="travel-how-grid">
+                <div class="travel-how-card fade-in">
+                    <div class="travel-how-number">1</div>
+                    <h4>Diagnostic Assessment</h4>
+                    <p>Complete our 3-minute protocol diagnostic. We map your energy patterns, sleep quality, travel frequency, and performance goals to identify your biggest optimization levers.</p>
+                </div>
+                <div class="travel-how-card fade-in">
+                    <div class="travel-how-number">2</div>
+                    <h4>Protocol Design</h4>
+                    <p>Our system generates a personalized biohacking protocol covering circadian optimization, supplementation, recovery timing, and cognitive performance stacks tailored to your executive lifestyle.</p>
+                </div>
+                <div class="travel-how-card fade-in">
+                    <div class="travel-how-number">3</div>
+                    <h4>Iterate &amp; Optimize</h4>
+                    <p>Track your metrics, receive protocol adjustments, and access our community of high-performing operators. Your protocol evolves as your body and goals change.</p>
+                </div>
+            </div>
+            <div class="travel-cta fade-in">
+                <p>Ready to stop guessing and start optimizing?</p>
+                <a href="#" class="btn btn-primary btn-lg" onclick="showSection('diagnostic');return false;">Take the 3-Minute Diagnostic</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocols Section -->
+    <section class="section section-dark" id="protocols">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Protocol Suite</span>
+                <h2>Engineered for <span class="gradient-text">Peak Performance</span></h2>
+                <p class="section-desc">Six integrated protocols designed for executives who demand more from their biology.</p>
+            </div>
+            <div class="protocols-grid">
+                <div class="protocol-card protocol-featured fade-in">
+                    <span class="protocol-number">01</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    </div>
+                    <h3>Travel Arrival Protocol</h3>
+                    <p class="protocol-time">Pre-flight to Day 2</p>
+                    <p>AI-generated circadian reset protocols based on your origin, destination, and meeting schedule. Eliminate jet lag and arrive performing at 100%.</p>
+                    <div class="protocol-results">
+                        <span>Circadian Reset</span>
+                        <span>Jet Lag Elimination</span>
+                        <span>Timezone Adaptation</span>
+                    </div>
+                </div>
+                <div class="protocol-card fade-in">
+                    <span class="protocol-number">02</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                    <h3>Cognitive Stack</h3>
+                    <p class="protocol-time">Daily Protocol</p>
+                    <p>Nootropic and nutrient stacking optimized for sustained focus, memory consolidation, and executive decision-making.</p>
+                    <div class="protocol-results">
+                        <span>Deep Focus</span>
+                        <span>Memory</span>
+                        <span>Clarity</span>
+                    </div>
+                </div>
+                <div class="protocol-card fade-in">
+                    <span class="protocol-number">03</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                    </div>
+                    <h3>Sleep Architecture</h3>
+                    <p class="protocol-time">Evening Protocol</p>
+                    <p>Maximize deep and REM sleep through timed supplementation, light exposure management, and temperature protocols.</p>
+                    <div class="protocol-results">
+                        <span>Deep Sleep</span>
+                        <span>REM Quality</span>
+                        <span>Recovery</span>
+                    </div>
+                </div>
+                <div class="protocol-card fade-in">
+                    <span class="protocol-number">04</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Energy Management</h3>
+                    <p class="protocol-time">All-Day System</p>
+                    <p>Eliminate crashes with metabolic timing, glucose optimization, and strategic caffeine protocols aligned to your calendar.</p>
+                    <div class="protocol-results">
+                        <span>No Crashes</span>
+                        <span>Stable Energy</span>
+                    </div>
+                </div>
+                <div class="protocol-card fade-in">
+                    <span class="protocol-number">05</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    </div>
+                    <h3>Recovery Protocol</h3>
+                    <p class="protocol-time">Post-Exertion</p>
+                    <p>HRV-guided recovery strategies combining cold exposure, breathing techniques, and targeted supplementation.</p>
+                    <div class="protocol-results">
+                        <span>HRV Optimization</span>
+                        <span>Faster Recovery</span>
+                    </div>
+                </div>
+                <div class="protocol-card fade-in">
+                    <span class="protocol-number">06</span>
+                    <div class="protocol-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </div>
+                    <h3>Longevity Stack</h3>
+                    <p class="protocol-time">Long-Term Protocol</p>
+                    <p>Evidence-based interventions targeting biological age markers, telomere health, and systemic inflammation reduction.</p>
+                    <div class="protocol-results">
+                        <span>Anti-Aging</span>
+                        <span>Inflammation</span>
+                        <span>Longevity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="section" id="science">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Evidence-Based</span>
+                <h2>Built on <span class="gradient-text">Peer-Reviewed Science</span></h2>
+                <p class="section-desc">Every protocol element is sourced from published research, not influencer trends.</p>
+            </div>
+            <div class="science-grid">
+                <div class="science-card fade-in">
+                    <div class="science-source">Stanford Medicine</div>
+                    <h4>Huberman Light Protocol</h4>
+                    <p>Timed light exposure within 30-60 minutes of waking advances circadian phase by up to 2 hours per day, accelerating timezone adaptation.</p>
+                </div>
+                <div class="science-card fade-in">
+                    <div class="science-source">Nature Neuroscience</div>
+                    <h4>Cognitive Enhancement Stacks</h4>
+                    <p>Targeted nootropic combinations show 23% improvement in executive function tasks when combined with sleep optimization protocols.</p>
+                </div>
+                <div class="science-card fade-in">
+                    <div class="science-source">Cell Metabolism</div>
+                    <h4>Metabolic Timing</h4>
+                    <p>Time-restricted feeding aligned to circadian rhythm improves metabolic markers by 18-25% and eliminates post-meal cognitive decline.</p>
+                </div>
+                <div class="science-card fade-in">
+                    <div class="science-source">Sleep Foundation</div>
+                    <h4>Sleep Architecture Optimization</h4>
+                    <p>Temperature manipulation combined with magnesium L-threonate increases deep sleep duration by 40-60 minutes per night on average.</p>
+                </div>
+                <div class="science-card fade-in">
+                    <div class="science-source">Journal of Physiology</div>
+                    <h4>Cold Exposure Recovery</h4>
+                    <p>Strategic cold exposure at 11-15C for 2-5 minutes increases norepinephrine 200-300%, accelerating recovery and boosting alertness.</p>
+                </div>
+                <div class="science-card fade-in">
+                    <div class="science-source">Lancet Longevity</div>
+                    <h4>Biological Age Reduction</h4>
+                    <p>Integrated lifestyle protocols targeting inflammation, sleep, and metabolic health show measurable epigenetic age reversal of 3-8 years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Testimonials -->
+    <section class="section section-dark" id="results">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Results</span>
+                <h2>What <span class="gradient-text">Elite Operators</span> Report</h2>
+                <p class="section-desc">Real outcomes from founders, investors, and executives running our protocols.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"I used to lose 3 days every time I flew SFO to Singapore. Now I land, sleep 7 hours, and take my first meeting at full capacity. This protocol is non-negotiable for me."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div>
+                            <strong>M. Rodriguez</strong>
+                            <span>Series C CEO, 42 &mdash; 12+ international trips/year</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"My deep sleep went from 38 minutes to 1 hour 45 minutes. The cognitive difference is staggering. Better decisions, less reactive, more creative. My co-founder noticed within a week."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div>
+                            <strong>J. Lindqvist</strong>
+                            <span>VC Partner, 36 &mdash; Managing $200M fund</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Replaced 11 random supplements with 4 targeted ones. Saving $400/month and actually feeling the difference. The energy management protocol alone was worth it."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div>
+                            <strong>S. Krishnan</strong>
+                            <span>COO, Growth-Stage SaaS, 39</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="results-stats">
+                <div class="stat fade-in">
+                    <span class="stat-number">93%</span>
+                    <span class="stat-label">Improved focus in 14 days</span>
+                </div>
+                <div class="stat fade-in">
+                    <span class="stat-number">2.4x</span>
+                    <span class="stat-label">Energy improvement</span>
+                </div>
+                <div class="stat fade-in">
+                    <span class="stat-number">+47m</span>
+                    <span class="stat-label">Deep sleep per night</span>
+                </div>
+                <div class="stat fade-in">
+                    <span class="stat-number">4.8</span>
+                    <span class="stat-label">Average member rating</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Investment</span>
+                <h2>Choose Your <span class="gradient-text">Protocol Tier</span></h2>
+                <p class="section-desc">Performance optimization at every level. Cancel anytime.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-tier">Foundation</div>
+                    <div class="pricing-price">
+                        <span class="price-currency">$</span><span class="price-amount">29</span><span class="price-period">/mo</span>
+                    </div>
+                    <p class="pricing-desc">Core protocols for operators ready to stop guessing.</p>
+                    <ul class="pricing-features">
+                        <li>Personalized protocol diagnostic</li>
+                        <li>Core supplement stack recommendations</li>
+                        <li>Sleep optimization protocol</li>
+                        <li>Energy management framework</li>
+                        <li>Monthly protocol updates</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full" onclick="showSection('diagnostic');return false;">Get Started</a>
+                </div>
+                <div class="pricing-card pricing-popular fade-in">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-tier">Executive</div>
+                    <div class="pricing-price">
+                        <span class="price-currency">$</span><span class="price-amount">149</span><span class="price-period">/mo</span>
+                    </div>
+                    <p class="pricing-desc">Full protocol suite for high-frequency performers.</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Foundation</li>
+                        <li>Travel arrival protocols (unlimited)</li>
+                        <li>Cognitive performance stack</li>
+                        <li>Recovery &amp; longevity protocols</li>
+                        <li>Weekly protocol adjustments</li>
+                        <li>Priority community access</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full" onclick="showSection('diagnostic');return false;">Take the Diagnostic</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="pricing-tier">Founder</div>
+                    <div class="pricing-price">
+                        <span class="price-currency">$</span><span class="price-amount">500</span><span class="price-period">/mo</span>
+                    </div>
+                    <p class="pricing-desc">White-glove protocol design with direct expert access.</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Executive</li>
+                        <li>1-on-1 protocol design sessions</li>
+                        <li>Biomarker analysis integration</li>
+                        <li>Private protocol review (quarterly)</li>
+                        <li>Direct access to protocol team</li>
+                        <li>Custom travel protocols</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full" onclick="showSection('diagnostic');return false;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifier Bar -->
+    <div class="qualifier-bar">
+        <div class="container">
+            <p class="qualifier-text"><strong>Not for everyone.</strong> BioEdge is designed for founders, executives, investors, and operators who are serious about cognitive and physical performance optimization. If you're looking for quick fixes, this isn't for you.</p>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <section class="section section-cta" id="waitlist">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Upgrade Your <span class="gradient-text">Operating System?</span></h2>
+                <p>Take the 3-minute diagnostic. Get matched to your personalized protocol. Join 400+ executives already optimizing their performance.</p>
+                <a href="#" class="btn btn-primary btn-lg" onclick="showSection('diagnostic');return false;" style="margin-bottom:16px;">
+                    Take the 3-Minute Protocol Diagnostic
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <div class="scarcity-notice">
+                    <span class="scarcity-dot"></span>
+                    <strong>127 spots remaining</strong> for Q2 2026 cohort
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <!-- END LANDING PAGE -->
+
+    <!-- ===== SECTION 2: DIAGNOSTIC QUESTIONNAIRE ===== -->
+    <div id="section-diagnostic" style="display:none;">
+        <section class="hero" style="min-height:100vh;padding-top:100px;">
+            <div class="container">
+                <div class="diagnostic-container">
+                    <!-- Progress Bar -->
+                    <div class="diagnostic-progress">
+                        <div class="diagnostic-progress-bar" id="progressBar" style="width:0%"></div>
+                    </div>
+                    <div class="diagnostic-step-count" id="stepCount">Question 1 of 8</div>
+
+                    <!-- Questions Container -->
+                    <div id="diagnosticQuestions">
+
+                        <!-- Q1: Age Range -->
+                        <div class="diagnostic-question active" data-step="1">
+                            <h2 class="diagnostic-title">What's your age range?</h2>
+                            <p class="diagnostic-subtitle">This helps us calibrate protocols to your metabolic profile.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">25 &ndash; 30</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">31 &ndash; 35</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">36 &ndash; 40</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">41 &ndash; 45</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">46 &ndash; 50</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 1)">50+</button>
+                            </div>
+                        </div>
+
+                        <!-- Q2: Role -->
+                        <div class="diagnostic-question" data-step="2">
+                            <h2 class="diagnostic-title">What best describes your role?</h2>
+                            <p class="diagnostic-subtitle">We tailor protocols to the demands of your position.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">Founder / CEO</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">C-Suite Executive</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">Investor / VC / PE</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">VP / Director / Operator</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">Entrepreneur / Solo Founder</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 2)">Other High-Performance Role</button>
+                            </div>
+                        </div>
+
+                        <!-- Q3: Travel Frequency -->
+                        <div class="diagnostic-question" data-step="3">
+                            <h2 class="diagnostic-title">How often do you travel for work?</h2>
+                            <p class="diagnostic-subtitle">Travel frequency determines your need for circadian reset protocols.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 3)">Rarely (1-2x per year)</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 3)">Occasionally (3-6x per year)</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 3)">Frequently (monthly)</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 3)">Very frequently (2-4x per month)</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 3)">Constantly (weekly+)</button>
+                            </div>
+                        </div>
+
+                        <!-- Q4: Sleep Quality -->
+                        <div class="diagnostic-question" data-step="4">
+                            <h2 class="diagnostic-title">How would you rate your sleep quality?</h2>
+                            <p class="diagnostic-subtitle">Sleep is the #1 performance lever. We need to know where you stand.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 4)">Excellent &mdash; I wake refreshed and energized</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 4)">Good &mdash; Most nights are fine</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 4)">Fair &mdash; I struggle to fall or stay asleep</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 4)">Poor &mdash; I rely on sleep aids or rarely feel rested</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 4)">Terrible &mdash; Chronic sleep issues affecting my work</button>
+                            </div>
+                        </div>
+
+                        <!-- Q5: Energy Levels -->
+                        <div class="diagnostic-question" data-step="5">
+                            <h2 class="diagnostic-title">Describe your typical energy pattern</h2>
+                            <p class="diagnostic-subtitle">Understanding your energy curve lets us target the right interventions.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 5)">Steady all day &mdash; No major crashes</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 5)">Morning peak &mdash; Crash after lunch</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 5)">Slow start &mdash; Peak in afternoon/evening</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 5)">Rollercoaster &mdash; Unpredictable highs and lows</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 5)">Consistently low &mdash; Running on caffeine</button>
+                            </div>
+                        </div>
+
+                        <!-- Q6: Supplements -->
+                        <div class="diagnostic-question" data-step="6">
+                            <h2 class="diagnostic-title">What supplements do you currently take?</h2>
+                            <p class="diagnostic-subtitle">Select all that apply. We'll identify gaps and redundancies.</p>
+                            <div class="diagnostic-options diagnostic-options-multi">
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Vitamin D</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Magnesium</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Omega-3 / Fish Oil</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Creatine</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Ashwagandha / Adaptogens</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Nootropics (Lion's Mane, Alpha-GPC, etc.)</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Protein / Amino Acids</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">Melatonin / Sleep Aids</button>
+                                <button class="diagnostic-option" onclick="toggleMulti(this)">None currently</button>
+                            </div>
+                            <button class="btn btn-primary btn-lg" style="margin-top:24px;" onclick="nextStep(6)">Continue</button>
+                        </div>
+
+                        <!-- Q7: Biohacking Familiarity -->
+                        <div class="diagnostic-question" data-step="7">
+                            <h2 class="diagnostic-title">How familiar are you with biohacking?</h2>
+                            <p class="diagnostic-subtitle">This helps us set the right depth for your protocols.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 7)">Beginner &mdash; I've heard of it but never tried</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 7)">Curious &mdash; I follow podcasts and have tried a few things</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 7)">Intermediate &mdash; I actively track metrics and optimize</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 7)">Advanced &mdash; I use wearables, labs, and structured protocols</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 7)">Expert &mdash; I've worked with longevity clinics or coaches</button>
+                            </div>
+                        </div>
+
+                        <!-- Q8: Willingness to Pay -->
+                        <div class="diagnostic-question" data-step="8">
+                            <h2 class="diagnostic-title">What would you invest monthly in a proven performance protocol?</h2>
+                            <p class="diagnostic-subtitle">This helps us match you to the right tier. No commitment required.</p>
+                            <div class="diagnostic-options">
+                                <button class="diagnostic-option" onclick="selectOption(this, 8)">$29 &ndash; $49/month</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 8)">$50 &ndash; $99/month</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 8)">$100 &ndash; $199/month</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 8)">$200 &ndash; $499/month</button>
+                                <button class="diagnostic-option" onclick="selectOption(this, 8)">$500+/month</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- END DIAGNOSTIC -->
+
+    <!-- ===== SECTION 3: WAITLIST ===== -->
+    <div id="section-waitlist" style="display:none;">
+        <section class="hero" style="min-height:100vh;padding-top:100px;">
+            <div class="container">
+                <div class="waitlist-container">
+                    <div class="waitlist-icon">&#9889;</div>
+                    <h2 class="waitlist-title">You're In. <span class="gradient-text">Protocol Incoming.</span></h2>
+                    <div class="waitlist-position-box">
+                        <span class="waitlist-position-label">Your Waitlist Position</span>
+                        <span class="waitlist-position-number" id="waitlistPosition">#---</span>
+                    </div>
+                    <p class="waitlist-subtitle">We're building your protocol profile now. You'll receive your personalized protocol recommendations via email within 48 hours.</p>
+
+                    <!-- Email Capture -->
+                    <div class="waitlist-email-form" id="emailForm">
+                        <h3>Enter your email to lock in your spot</h3>
+                        <div class="lead-magnet-form" style="max-width:480px;margin:16px auto;">
+                            <input type="email" class="form-input" id="waitlistEmail" placeholder="your@email.com" required>
+                            <button class="btn btn-primary" onclick="submitWaitlistEmail()">Lock My Spot</button>
+                        </div>
+                    </div>
+
+                    <!-- Referral Section (shown after email) -->
+                    <div class="waitlist-referral" id="referralSection" style="display:none;">
+                        <div class="waitlist-confirmed">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Spot confirmed!</span>
+                        </div>
+
+                        <div class="referral-card">
+                            <h3>Move Up the Waitlist</h3>
+                            <p>Share your unique link with friends. The more people who join through your link, the faster you get access.</p>
+
+                            <div class="referral-tiers">
+                                <div class="referral-tier">
+                                    <div class="referral-tier-count">3 referrals</div>
+                                    <div class="referral-tier-reward">Early Access</div>
+                                    <div class="referral-tier-desc">Skip the waitlist and get immediate access</div>
+                                </div>
+                                <div class="referral-tier">
+                                    <div class="referral-tier-count">5 referrals</div>
+                                    <div class="referral-tier-reward">Founder Pricing</div>
+                                    <div class="referral-tier-desc">Lock in 40% off for life</div>
+                                </div>
+                                <div class="referral-tier referral-tier-highlight">
+                                    <div class="referral-tier-count">10 referrals</div>
+                                    <div class="referral-tier-reward">Private Protocol Review</div>
+                                    <div class="referral-tier-desc">1-on-1 session with our protocol team</div>
+                                </div>
+                            </div>
+
+                            <div class="referral-link-box">
+                                <label>Your unique referral link</label>
+                                <div class="referral-link-row">
+                                    <input type="text" class="form-input" id="referralLink" readonly value="https://bioedge.co/ref/loading...">
+                                    <button class="btn btn-primary" onclick="copyReferralLink()">Copy</button>
+                                </div>
+                                <span class="referral-copied" id="copiedMsg" style="display:none;">Copied to clipboard!</span>
+                            </div>
+
+                            <div class="referral-share-buttons">
+                                <button class="btn btn-ghost" onclick="shareTwitter()">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    Share on X
+                                </button>
+                                <button class="btn btn-ghost" onclick="shareLinkedIn()">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                    Share on LinkedIn
+                                </button>
+                            </div>
+
+                            <div class="referral-stats">
+                                <div class="referral-stat">
+                                    <span class="referral-stat-number" id="referralCount">0</span>
+                                    <span class="referral-stat-label">Referrals</span>
+                                </div>
+                                <div class="referral-stat">
+                                    <span class="referral-stat-number" id="nextReward">3</span>
+                                    <span class="referral-stat-label">Until Next Reward</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- END WAITLIST -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo" onclick="showSection('landing');return false;">
+                        <span class="logo-icon">&#9889;</span>
+                        <span>BioEdge</span>
+                    </a>
+                    <p>The executive biohacking protocol. Personalized performance systems for founders, executives, and elite operators.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Protocol</h4>
+                    <a href="#how">How It Works</a>
+                    <a href="#protocols">Protocols</a>
+                    <a href="#science">The Science</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Research</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Medical Disclaimer</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BioEdge. All rights reserved.</p>
+                <p class="footer-disclaimer">BioEdge provides information and personalized recommendations for educational purposes. Our protocols are not intended to diagnose, treat, cure, or prevent any disease. Always consult with a qualified healthcare professional before starting any new supplement or health optimization protocol.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // ===== SECTION NAVIGATION =====
+    function showSection(section) {
+        document.getElementById('section-landing').style.display = section === 'landing' ? 'block' : 'none';
+        document.getElementById('section-diagnostic').style.display = section === 'diagnostic' ? 'block' : 'none';
+        document.getElementById('section-waitlist').style.display = section === 'waitlist' ? 'block' : 'none';
+        window.scrollTo(0, 0);
+
+        // Reset diagnostic if going back
+        if (section === 'diagnostic') {
+            currentStep = 1;
+            showStep(1);
+        }
+    }
+
+    // ===== DIAGNOSTIC FLOW =====
+    const totalSteps = 8;
+    let currentStep = 1;
+    const answers = {};
+
+    function showStep(step) {
+        document.querySelectorAll('.diagnostic-question').forEach(q => q.classList.remove('active'));
+        const target = document.querySelector(`.diagnostic-question[data-step="${step}"]`);
+        if (target) target.classList.add('active');
+        document.getElementById('progressBar').style.width = ((step - 1) / totalSteps * 100) + '%';
+        document.getElementById('stepCount').textContent = `Question ${step} of ${totalSteps}`;
+    }
+
+    function selectOption(el, step) {
+        // Remove selected from siblings
+        el.parentElement.querySelectorAll('.diagnostic-option').forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+        answers[step] = el.textContent.trim();
+
+        // Auto-advance after brief delay
+        setTimeout(() => nextStep(step), 400);
+    }
+
+    function toggleMulti(el) {
+        el.classList.toggle('selected');
+    }
+
+    function nextStep(step) {
+        if (step === totalSteps) {
+            // Complete - go to waitlist
+            document.getElementById('progressBar').style.width = '100%';
+            document.getElementById('stepCount').textContent = 'Complete!';
+
+            // Generate waitlist position
+            const position = Math.floor(Math.random() * 200) + 128;
+            document.getElementById('waitlistPosition').textContent = '#' + position;
+
+            setTimeout(() => showSection('waitlist'), 600);
+            return;
+        }
+        currentStep = step + 1;
+        showStep(currentStep);
+    }
+
+    // ===== WAITLIST & REFERRAL =====
+    function generateReferralCode() {
+        return 'BE-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+    }
+
+    function submitWaitlistEmail() {
+        const email = document.getElementById('waitlistEmail').value;
+        if (!email || !email.includes('@')) {
+            document.getElementById('waitlistEmail').style.borderColor = '#ff6b6b';
+            return;
+        }
+
+        // Store email (in production: send to backend)
+        const refCode = generateReferralCode();
+        localStorage.setItem('bioedge_email', email);
+        localStorage.setItem('bioedge_ref', refCode);
+        localStorage.setItem('bioedge_answers', JSON.stringify(answers));
+
+        // Show referral section
+        document.getElementById('emailForm').style.display = 'none';
+        document.getElementById('referralSection').style.display = 'block';
+        document.getElementById('referralLink').value = 'https://bioedge.co/ref/' + refCode;
+    }
+
+    function copyReferralLink() {
+        const link = document.getElementById('referralLink');
+        navigator.clipboard.writeText(link.value).then(() => {
+            const msg = document.getElementById('copiedMsg');
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 2000);
+        });
+    }
+
+    function shareTwitter() {
+        const ref = document.getElementById('referralLink').value;
+        const text = encodeURIComponent("I just signed up for the Executive Biohacking Protocol by @BioEdge. Personalized performance systems for founders & executives. Join the waitlist:");
+        window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(ref)}`, '_blank');
+    }
+
+    function shareLinkedIn() {
+        const ref = document.getElementById('referralLink').value;
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(ref)}`, '_blank');
+    }
+
+    // ===== NAV SCROLL EFFECT =====
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('nav-open');
+        this.classList.toggle('nav-toggle-active');
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== VIRAL LOOPS INTEGRATION (PLACEHOLDER) =====
+    // To activate Viral Loops:
+    // 1. Sign up at viral-loops.com and create a campaign using the "Startup" template
+    // 2. Replace the script src below with your campaign widget URL
+    // 3. The referral system will automatically track referrals and manage rewards:
+    //    - 3 referrals -> Early access
+    //    - 5 referrals -> Founder pricing (40% off for life)
+    //    - 10 referrals -> Private protocol review (1-on-1 session)
+    //
+    // Example integration:
+    // <script src="https://app.viral-loops.com/widget/YOUR_CAMPAIGN_ID"></script>
+    // Then replace the manual referral code generation with:
+    // ViralLoops.identify({ email: email }).then(user => {
+    //   document.getElementById('referralLink').value = user.referralLink;
+    //   document.getElementById('referralCount').textContent = user.referralCount;
+    // });
+    </script>
+</body>
+</html>

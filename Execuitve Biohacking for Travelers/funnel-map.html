@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioEdge — Full Meta Ads Funnel Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #16161f;
+            --bg-elevated: #1e1e2a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b82;
+            --accent-primary: #6c5ce7;
+            --accent-secondary: #a29bfe;
+            --accent-cyan: #00cec9;
+            --accent-green: #00b894;
+            --accent-orange: #fdcb6e;
+            --accent-red: #e17055;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #00cec9);
+            --border: rgba(255,255,255,0.06);
+            --radius: 12px;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--text-primary); }
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .page-header .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Funnel container */
+        .funnel {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+        }
+
+        /* Stage */
+        .stage {
+            position: relative;
+            margin-bottom: 0;
+        }
+        .stage-connector {
+            display: flex;
+            justify-content: center;
+            padding: 16px 0;
+        }
+        .stage-connector svg {
+            color: var(--text-muted);
+        }
+        .stage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .stage-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .stage-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .stage-number.tof { background: rgba(108,92,231,0.2); color: var(--accent-secondary); }
+        .stage-number.mof { background: rgba(0,206,201,0.2); color: var(--accent-cyan); }
+        .stage-number.bof { background: rgba(0,184,148,0.2); color: var(--accent-green); }
+        .stage-number.convert { background: rgba(253,203,110,0.2); color: var(--accent-orange); }
+        .stage-number.retain { background: rgba(225,112,85,0.2); color: var(--accent-red); }
+        .stage-header-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .stage-header-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .stage-tag {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        .stage-tag.tof { background: rgba(108,92,231,0.15); color: var(--accent-secondary); }
+        .stage-tag.mof { background: rgba(0,206,201,0.15); color: var(--accent-cyan); }
+        .stage-tag.bof { background: rgba(0,184,148,0.15); color: var(--accent-green); }
+        .stage-tag.convert { background: rgba(253,203,110,0.15); color: var(--accent-orange); }
+        .stage-tag.retain { background: rgba(225,112,85,0.15); color: var(--accent-red); }
+
+        .stage-body {
+            padding: 24px;
+        }
+        .stage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .stage-block h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .stage-block ul {
+            list-style: none;
+        }
+        .stage-block li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 4px 0 4px 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .stage-block li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .stage-kpis {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .kpi {
+            display: flex;
+            flex-direction: column;
+        }
+        .kpi-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .kpi-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .kpi-value.tof { color: var(--accent-secondary); }
+        .kpi-value.mof { color: var(--accent-cyan); }
+        .kpi-value.bof { color: var(--accent-green); }
+        .kpi-value.convert { color: var(--accent-orange); }
+        .kpi-value.retain { color: var(--accent-red); }
+
+        /* Email sequence */
+        .email-sequence {
+            display: grid;
+            gap: 12px;
+        }
+        .email-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .email-day {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            background: rgba(253,203,110,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+        .email-info h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .email-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Budget summary */
+        .budget-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+        .budget-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .budget-section > p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 28px;
+        }
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .budget-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+        }
+        .budget-card h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .budget-card .budget-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .budget-card .budget-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Page links */
+        .page-links {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .page-link-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s;
+        }
+        .page-link-card:hover {
+            border-color: var(--accent-primary);
+        }
+        .page-link-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .page-link-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .stage-grid { grid-template-columns: 1fr; }
+            .stage-kpis { flex-direction: column; gap: 12px; }
+            .budget-grid { grid-template-columns: 1fr 1fr; }
+            .stage-tag { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&larr; Back to landing page</a>
+
+    <div class="page-header">
+        <h1>Full Funnel <span class="gradient-text">Map</span></h1>
+        <p>The complete Meta Ads funnel — from cold traffic awareness to paid conversion and retention. Every stage mapped with copy, destinations, KPIs, and email sequences.</p>
+    </div>
+
+    <div class="page-links">
+        <a href="ad-mockups.html" class="page-link-card">
+            <h4>Ad Creative Mockups &rarr;</h4>
+            <p>Feed, story, and reel ad variations with copy bank and targeting</p>
+        </a>
+        <a href="lp-lead-magnet.html" class="page-link-card">
+            <h4>Lead Magnet Landing Page &rarr;</h4>
+            <p>Dedicated LP for the biomarkers guide — TOF campaign destination</p>
+        </a>
+        <a href="lp-waitlist.html" class="page-link-card">
+            <h4>Waitlist Landing Page &rarr;</h4>
+            <p>Stripped-down LP for free protocol sign-up — MOF/BOF destination</p>
+        </a>
+    </div>
+
+    <div class="funnel">
+        <!-- STAGE 1: TOF — AWARENESS -->
+        <div class="stage">
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number tof">1</div>
+                    <div class="stage-header-info">
+                        <h3>Top of Funnel — Awareness</h3>
+                        <p>Cold traffic. Problem-aware founders who don't know BioEdge exists yet.</p>
+                    </div>
+                    <span class="stage-tag tof">TOF</span>
+                </div>
+                <div class="stage-body">
+                    <div class="stage-grid">
+                        <div class="stage-block">
+                            <h4>Ad Creative</h4>
+                            <ul>
+                                <li>Campaign 1: Pain angle — "You're not burned out. Your biology is broken."</li>
+                                <li>Feed + Story + Reel variations</li>
+                                <li>Static image with stat overlay + video UGC tests</li>
+                                <li>Hook tests: curiosity vs. pain vs. contrarian</li>
+                            </ul>
+                        </div>
+                        <div class="stage-block">
+                            <h4>Destination & Conversion</h4>
+                            <ul>
+                                <li>Landing page: <strong>lp-lead-magnet.html</strong></li>
+                                <li>Offer: Free guide "5 Biomarkers Your Doctor Isn't Testing"</li>
+                                <li>Conversion event: Lead (email capture)</li>
+                                <li>Pixel: ViewContent + Lead</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stage-kpis">
+                        <div class="kpi">
+                            <span class="kpi-label">Target CPM</span>
+                            <span class="kpi-value tof">$15-25</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Target CTR</span>
+                            <span class="kpi-value tof">1.5-3%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Target CPL</span>
+                            <span class="kpi-value tof">$3-8</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">LP Conv Rate</span>
+                            <span class="kpi-value tof">25-40%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Budget Split</span>
+                            <span class="kpi-value tof">50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stage-connector">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 0v32M6 26l6 6 6-6"/></svg>
+        </div>
+
+        <!-- STAGE 2: MOF — CONSIDERATION -->
+        <div class="stage">
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number mof">2</div>
+                    <div class="stage-header-info">
+                        <h3>Mid Funnel — Consideration</h3>
+                        <p>Warm traffic. Lead magnet downloaders and engaged visitors exploring the solution.</p>
+                    </div>
+                    <span class="stage-tag mof">MOF</span>
+                </div>
+                <div class="stage-body">
+                    <div class="stage-grid">
+                        <div class="stage-block">
+                            <h4>Ad Creative</h4>
+                            <ul>
+                                <li>Campaign 2: Solution angle — "The Arrival Protocol"</li>
+                                <li>Specific route examples (SFO→Tokyo, LHR→NYC)</li>
+                                <li>Social proof: "2,400+ founders already optimized"</li>
+                                <li>Demo-style: Show protocol generation flow</li>
+                            </ul>
+                        </div>
+                        <div class="stage-block">
+                            <h4>Destination & Conversion</h4>
+                            <ul>
+                                <li>Landing page: <strong>lp-waitlist.html</strong> or <strong>index.html</strong></li>
+                                <li>Offer: Free first Arrival Protocol</li>
+                                <li>Conversion event: CompleteRegistration</li>
+                                <li>Pixel: ViewContent + CompleteRegistration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stage-block" style="margin-top: 20px;">
+                        <h4>Email Nurture Sequence (post lead magnet)</h4>
+                        <div class="email-sequence">
+                            <div class="email-item">
+                                <span class="email-day">Day 0</span>
+                                <div class="email-info">
+                                    <h5>Deliver the Guide + Quick Win</h5>
+                                    <p>Send the biomarkers PDF. Include one actionable tip they can do today: "Get 10 min of morning sunlight within 30 min of waking. This single habit outperforms any supplement."</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 2</span>
+                                <div class="email-info">
+                                    <h5>The Hidden Cost of Jet Lag (Story)</h5>
+                                    <p>M.K.'s transformation story — the same case study from the LP. "He was losing 2-3 days every trip... until he tried the Arrival Protocol." Ends with: "Want your own? It's free."</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 4</span>
+                                <div class="email-info">
+                                    <h5>The Science Behind the Protocol</h5>
+                                    <p>Huberman + Attia framework. Position BioEdge as the implementation layer. "You've heard the podcasts. Now get the protocol." CTA: Try your first Arrival Protocol free.</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 7</span>
+                                <div class="email-info">
+                                    <h5>"Where Are You Headed Next?" (Soft CTA)</h5>
+                                    <p>Direct question. Reply-to email. "Tell me your next trip and I'll show you what the protocol covers." Drives engagement and qualifying data.</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 10</span>
+                                <div class="email-info">
+                                    <h5>Objection Buster: "I've tried wellness apps before"</h5>
+                                    <p>Address the #1 objection. This isn't meditation or journaling. It's data-driven protocols built by AI for your exact trip. Wearable data screenshots. CTA: Free protocol.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-kpis">
+                        <div class="kpi">
+                            <span class="kpi-label">Target CPM</span>
+                            <span class="kpi-value mof">$20-35</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Target CTR</span>
+                            <span class="kpi-value mof">2-4%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Email Open Rate</span>
+                            <span class="kpi-value mof">45-55%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Email → Free Trial</span>
+                            <span class="kpi-value mof">8-15%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Budget Split</span>
+                            <span class="kpi-value mof">30%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stage-connector">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 0v32M6 26l6 6 6-6"/></svg>
+        </div>
+
+        <!-- STAGE 3: BOF — CONVERSION -->
+        <div class="stage">
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number bof">3</div>
+                    <div class="stage-header-info">
+                        <h3>Bottom of Funnel — Conversion</h3>
+                        <p>Hot traffic. LP visitors, free trial users, and email subscribers ready to buy.</p>
+                    </div>
+                    <span class="stage-tag bof">BOF</span>
+                </div>
+                <div class="stage-body">
+                    <div class="stage-grid">
+                        <div class="stage-block">
+                            <h4>Ad Creative</h4>
+                            <ul>
+                                <li>Campaign 3: Proof angle — testimonials + before/after data</li>
+                                <li>UGC-style first-person stories from founders</li>
+                                <li>Carousel: 3-slide before/after biomarker data</li>
+                                <li>Scarcity: "347 founding member spots remaining"</li>
+                            </ul>
+                        </div>
+                        <div class="stage-block">
+                            <h4>Destination & Conversion</h4>
+                            <ul>
+                                <li>Landing page: <strong>index.html#pricing</strong></li>
+                                <li>Offer: $19/mo Inner Circle + 30-day guarantee</li>
+                                <li>Conversion event: Purchase / StartTrial</li>
+                                <li>Pixel: ViewContent + InitiateCheckout + Purchase</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stage-block" style="margin-top: 20px;">
+                        <h4>Conversion Email Sequence (post free-trial)</h4>
+                        <div class="email-sequence">
+                            <div class="email-item">
+                                <span class="email-day">Day 0</span>
+                                <div class="email-info">
+                                    <h5>Your Arrival Protocol Is Ready</h5>
+                                    <p>Deliver the protocol immediately. Include: "Here's exactly what to do before, during, and after your flight." Make first value delivery instant.</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 3</span>
+                                <div class="email-info">
+                                    <h5>How Did It Go? (Feedback Loop)</h5>
+                                    <p>"How was your trip? Reply to this email with your Oura/WHOOP data and I'll show you what to optimize next." Drives engagement + qualifies for upgrade.</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 5</span>
+                                <div class="email-info">
+                                    <h5>Unlock Unlimited Protocols — Founding Price</h5>
+                                    <p>Value stack email. "One protocol helped. Imagine having one for every trip." Founding member pricing ($19/mo), limited to 500 spots. 30-day guarantee.</p>
+                                </div>
+                            </div>
+                            <div class="email-item">
+                                <span class="email-day">Day 7</span>
+                                <div class="email-info">
+                                    <h5>Last Chance: Founding Member Spots Closing</h5>
+                                    <p>Urgency + social proof. "217 founders joined this week. 347 founding spots left." Testimonial from M.K. Price goes to $29/mo after founding round.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-kpis">
+                        <div class="kpi">
+                            <span class="kpi-label">Target ROAS</span>
+                            <span class="kpi-value bof">3-5x</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Target CPA</span>
+                            <span class="kpi-value bof">$15-30</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Free → Paid</span>
+                            <span class="kpi-value bof">12-20%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Avg Order Value</span>
+                            <span class="kpi-value bof">$19/mo</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Budget Split</span>
+                            <span class="kpi-value bof">20%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stage-connector">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 0v32M6 26l6 6 6-6"/></svg>
+        </div>
+
+        <!-- STAGE 4: RETENTION -->
+        <div class="stage">
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number convert">4</div>
+                    <div class="stage-header-info">
+                        <h3>Post-Conversion — Retention & Upsell</h3>
+                        <p>Paying members. Reduce churn, increase LTV, and generate referrals.</p>
+                    </div>
+                    <span class="stage-tag convert">Retain</span>
+                </div>
+                <div class="stage-body">
+                    <div class="stage-grid">
+                        <div class="stage-block">
+                            <h4>Retention Tactics</h4>
+                            <ul>
+                                <li>Monthly "State of Your Biology" email with usage data</li>
+                                <li>Personalized protocol reminders before detected travel</li>
+                                <li>Community highlights — what other founders are optimizing</li>
+                                <li>New protocol alerts (seasonal, destination-specific)</li>
+                            </ul>
+                        </div>
+                        <div class="stage-block">
+                            <h4>Upsell & Referral</h4>
+                            <ul>
+                                <li>Inner Circle → Founding Member upsell ($19 → $49/mo)</li>
+                                <li>Trigger: 3+ protocols generated, high engagement</li>
+                                <li>"Give $10, Get $10" referral program</li>
+                                <li>Annual plan discount: 2 months free</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stage-kpis">
+                        <div class="kpi">
+                            <span class="kpi-label">Target Churn</span>
+                            <span class="kpi-value convert">&lt;5%/mo</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Target LTV</span>
+                            <span class="kpi-value convert">$150+</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Referral Rate</span>
+                            <span class="kpi-value convert">15-25%</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-label">Upsell Rate</span>
+                            <span class="kpi-value convert">10-15%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Budget Summary -->
+    <div class="budget-section">
+        <h2>Recommended Budget Allocation</h2>
+        <p>Starting budget for validation phase. Scale what works, kill what doesn't after 2 weeks of data.</p>
+        <div class="budget-grid">
+            <div class="budget-card">
+                <h4>Daily Total</h4>
+                <div class="budget-value" style="color: var(--text-primary);">$50-100</div>
+                <div class="budget-note">Validation phase (month 1)</div>
+            </div>
+            <div class="budget-card">
+                <h4>TOF (50%)</h4>
+                <div class="budget-value" style="color: var(--accent-secondary);">$25-50/day</div>
+                <div class="budget-note">Lead magnet acquisition</div>
+            </div>
+            <div class="budget-card">
+                <h4>MOF (30%)</h4>
+                <div class="budget-value" style="color: var(--accent-cyan);">$15-30/day</div>
+                <div class="budget-note">Solution awareness</div>
+            </div>
+            <div class="budget-card">
+                <h4>BOF (20%)</h4>
+                <div class="budget-value" style="color: var(--accent-green);">$10-20/day</div>
+                <div class="budget-note">Retarget & conversion</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
